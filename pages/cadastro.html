@@ -1,0 +1,54 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../css/cadastro.css">
+    <title>Cadastro - StreamHanks</title>
+</head>
+<body>
+    <div class="formularioCadastro">
+        <img class="wilsonBack" src="../img/wilson.png">
+        <table cellspacing="3px">
+            <tr>
+                <td colspan="2"><input type="text" placeholder="Nome Completo" size="40" class="firstInput" id="tNomeCompleto"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="date" placeholder="Data de Nascimento" size="40" class="firstInput" id="tDataDeNascimento"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="email" placeholder="E-mail" size="40" class="firstInput" id="tEmail"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="password" placeholder="Senha" size="40" class="firstInput" id="tSenha" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="password" placeholder="Confirmar Senha" size="40" class="firstInput" id="tConfirmSenha" />
+                </td>
+            </tr>
+            <tr height="25px">
+                <td colspan="2">
+                    <div class="erroAviso" id="erro"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" placeholder="Nome Completo (Impresso no Cartão)" size="40" class="firstInput" id="tNomeCompletoCartao"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="number" placeholder="Número do Cartão" size="40" class="firstInput" id="tNumeroDoCartao"/></td>
+            </tr>
+            <tr>
+                <td><input type="month" min="2021-01"  size="20" class="firstInput" id="tValidadeDoCartao" required/></td>
+                <td><input type="text" placeholder="Código de Segurança" size="4" maxlength="3" class="firstInput" id="tCodigoDeSeguranca"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" placeholder="CPF/CNPJ" size="40" maxlength="14" class="firstInput" id="tCpfCnpj"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="botaoForm" id="but">Salvar</button></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
