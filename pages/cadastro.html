@@ -3,7 +3,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link type="text/css" rel="stylesheet" href="../css/cadastro.css">
+    
+    <link rel="shortcut icon" href="../img/wilson.png">
     <title>Cadastro - StreamHanks</title>
 </head>
 <body>
@@ -11,19 +14,34 @@
         <img class="wilsonBack" src="../img/wilson.png">
         <table cellspacing="3px">
             <tr>
-                <td colspan="2"><input type="text" placeholder="Nome Completo" size="40" class="firstInput" id="tNomeCompleto"/></td>
+                <td colspan="2" class="tituloCampo">Nome Completo</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="date" placeholder="Data de Nascimento" size="40" class="firstInput" id="tDataDeNascimento"/></td>
+                <td colspan="2"><input type="text" size="40" class="firstInput" id="tNomeCompleto"/></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="email" placeholder="E-mail" size="40" class="firstInput" id="tEmail"/></td>
+                <td colspan="2" class="tituloCampo">Data de Nascimento</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="password" placeholder="Senha" size="40" class="firstInput" id="tSenha" /></td>
+                <td colspan="2"><input type="date" size="40" class="firstInput" id="tDataDeNascimento"/></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="password" placeholder="Confirmar Senha" size="40" class="firstInput" id="tConfirmSenha" />
+                <td colspan="2" class="tituloCampo">E-mail</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="email" size="40" class="firstInput" id="tEmail"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tituloCampo">Senha</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="password" size="40" class="firstInput" id="tSenha" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tituloCampo">Confirmar Senha</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="password" size="40" class="firstInput" id="tConfirmSenha" />
                 </td>
             </tr>
             <tr height="25px">
@@ -32,19 +50,32 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" placeholder="Nome Completo (Impresso no Cartão)" size="40" class="firstInput" id="tNomeCompletoCartao"/></td>
+                <td colspan="2" class="tituloCampo">Nome Completo (Impresso no Cartão)</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="number" placeholder="Número do Cartão" size="40" class="firstInput" id="tNumeroDoCartao"/></td>
+                <td colspan="2"><input type="text" size="40" class="firstInput" id="tNomeCompletoCartao"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tituloCampo">Número do Cartão</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" size="40" class="firstInput" id="tNumeroDoCartao"/></td>
+            </tr>
+            <tr>
+                <td class="tituloCampo">Validade do Cartão</td>
+                <td class="tituloCampo">Código de Segurança</td>
             </tr>
             <tr>
                 <td><input type="month" min="2021-01"  size="20" class="firstInput" id="tValidadeDoCartao" required/></td>
-                <td><input type="text" placeholder="Código de Segurança" size="4" maxlength="3" class="firstInput" id="tCodigoDeSeguranca"/></td>
+                <td><input type="text" placeholder="CVV" size="11" maxlength="4" class="firstInput" id="tCodigoDeSeguranca"/></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" placeholder="CPF/CNPJ" size="40" maxlength="14" class="firstInput" id="tCpfCnpj"/></td>
+                <td colspan="2" class="tituloCampo">CPF/CNPJ</td>
             </tr>
             <tr>
+                <td colspan="2"><input type="text" size="40" maxlength="14" class="firstInput" id="tCpfCnpj"/></td>
+            </tr>
+            <tr height="25px">
                 <td colspan="2"><button class="botaoForm" id="but">Salvar</button></td>
             </tr>
         </table>
