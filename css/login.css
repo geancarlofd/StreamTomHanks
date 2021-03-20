@@ -1,0 +1,97 @@
+.body{
+    margin: 0;
+    background-color: #111111;
+}
+
+.cabecalho{
+    width:100%;
+    height: 1rem;
+    text-align:left;
+    font-size: 50px;
+    color: #e6e6e6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* CAIXA LOGIN */
+.texto-entrar{
+    font-size: 30px;
+}
+
+.login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+}
+
+.login-table{
+    color: #e6e6e6;
+    text-align: center;
+    margin-top: 50px;
+}
+    
+.card{
+    height: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+.texto-senha{
+    color: #e6e6e6(255, 244, 244);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+/* INPUT E-MAIL E SENHA */ 
+.input-login{
+    width: 300px;
+    height: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 2px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-family: 'Arial';
+    color: black;
+}
+
+/* BOTÃO ENTRAR */
+.btn-login{
+    background-color: #ff9100;
+    color: #e6e6e6;
+    width: 300px;
+    height: 40px;
+    border: 1px;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.btn-login:hover{
+    background-color: #e07f00;
+    cursor: pointer
+}
+
+.campo-obrigatorio{
+    border: solid 1px #FA5858;
+}
+
+
+
+
+
+
+
+    
+
+ 
