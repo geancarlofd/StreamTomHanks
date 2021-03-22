@@ -5,9 +5,9 @@ window.onload = function() {
 
     document.getElementById("inputUser").focus();
 
-    function divFunction(){
-        document.getElementById('btnLogin').limparErro();
-        document.getElementById('btnLogin').verificarUsuario();
+    document.getElementById('btnLogin').onclick = function (){
+        limparErro();
+        verificarUsuario();
     }
 };
 
@@ -34,12 +34,12 @@ function verificarUsuario() {
     else {
         erro();
     }
-    console.log();
+
 }
 
 function limparInput(){
-    document.getElementById("inputUser").innerHTML = " ";
-    document.getElementById("inputSenha").innerHTML = " ";    
+    document.getElementById("inputUser").value = "";
+    document.getElementById("inputSenha").value = "";    
 }
 
 function erro(){
@@ -52,5 +52,5 @@ function erro(){
 function limparErro(){
     var element = document.getElementById("trErro");
     element.classList.remove("tr-erro");
-    element.innerHTML = " ";
+    element.value = "";
 }
