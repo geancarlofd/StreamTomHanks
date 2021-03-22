@@ -5,6 +5,8 @@ window.onload = function () {
 
     document.getElementById("btnCadastrar").onclick = function () {
 
+        globalErrorCampo = false;
+
         verificador("tNomeCompleto", "lNomeCompleto");
         verificador("tDataDeNascimento", "lDataDeNascimento");
         verificador("tEmail","lEmail");
@@ -14,7 +16,16 @@ window.onload = function () {
         verificador("tNumeroDoCartao", "lNumeroDoCartao");
         verificador("tValidadeDoCartao", "lValidadeDoCartao");
         verificador("tCodigoDeSeguranca","lCodigoDeSeguranca");
-        verificador("tCpfCnpj","lCpfCnpj")
+        verificador("tCpfCnpj","lCpfCnpj");
+
+        senhasConfirm();
+
+        if (globalErrorCampo == false) {
+            limparCampos();
+            alert('Formulario enviado com sucesso');
+
+            document.getElementById("tNomeCompleto").focus();
+        }
     }
 }
 
@@ -31,17 +42,42 @@ function verificador(idCampo, idTexto) {
 
         elementoTxt.classList.remove("tituloCampo");
         elementoTxt.classList.add("tituloCampoErro");
+
+        globalErrorCampo = true;
     }
     else{
         elementoIpt.classList.remove("inputFormularioErro");
         elementoIpt.classList.add("inputFormulario");
 
-        elementoIpt.classList.remove('tituloCampoErro');
-        elementoIpt.classList.add('tituloCampo');
+        elementoIpt.classList.remove("tituloCampoErro");
+        elementoIpt.classList.add("tituloCampo");
     }
 }
 
 function senhasConfirm() {
+    var senha = document.getElementById("tSenha").value;
+    var confirmarSenha = document.getElementsByName("tConfirmSenha").valeu;
+
+    if (senha == confirmarSenha){
+        document.getElementById("erroAviso").innerText("");
+
+        document.getElementById("tSenha").classList.remove("inputFormularioErro");
+        document.getElementById("tSenha").classList.add("inputFormulario");
+
+        document.getElementById("tConfirmSenha").classList.remove("inputFormularioErro");
+        document.getElementById("tConfirmSenha").classList.add("inputFormulario");
+    }
+    else{
+        document.getElementById("erroAviso").innerText("Senhas não compatíveis");
+
+        document.getElementById("tSenha").classList.remove("inputFormulario");
+        document.getElementById("tSenha").classList.add("inputFormularioErro");
+
+        document.getElementById("tConfirmSenha").classList.remove("inputFormulario");
+        document.getElementById("tConfirmSenha").classList.add("inputFormularioErro");
+
+        globalErrorCampo = true;
+    }
 
 }
 
