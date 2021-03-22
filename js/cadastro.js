@@ -49,32 +49,43 @@ function verificador(idCampo, idTexto) {
         elementoIpt.classList.remove("inputFormularioErro");
         elementoIpt.classList.add("inputFormulario");
 
-        elementoIpt.classList.remove("tituloCampoErro");
-        elementoIpt.classList.add("tituloCampo");
+        elementoTxt.classList.remove("tituloCampoErro");
+        elementoTxt.classList.add("tituloCampo");
     }
 }
 
 function senhasConfirm() {
     var senha = document.getElementById("tSenha").value;
-    var confirmarSenha = document.getElementsByName("tConfirmSenha").valeu;
+    var confirmarSenha = document.getElementById("tConfirmSenha").value;
+    console.log(document.getElementById("tSenha").value)
+    console.log(document.getElementById("tConfirmSenha").value)
 
     if (senha == confirmarSenha){
-        document.getElementById("erroAviso").innerText("");
+
+        document.getElementById("erroAviso").innerHTML = " ";
 
         document.getElementById("tSenha").classList.remove("inputFormularioErro");
         document.getElementById("tSenha").classList.add("inputFormulario");
+        document.getElementById("lSenha").classList.remove("tituloCampoErro");
+        document.getElementById("lSenha").classList.add("tituloCampo");
 
         document.getElementById("tConfirmSenha").classList.remove("inputFormularioErro");
         document.getElementById("tConfirmSenha").classList.add("inputFormulario");
+        document.getElementById("lConfirmSenha").classList.remove("tituloCampoErro");
+        document.getElementById("lConfirmSenha").classList.add("tituloCampo");
     }
     else{
-        document.getElementById("erroAviso").innerText("Senhas não compatíveis");
+        document.getElementById("erroAviso").innerHTML = "Senhas não compatíveis";
 
         document.getElementById("tSenha").classList.remove("inputFormulario");
         document.getElementById("tSenha").classList.add("inputFormularioErro");
+        document.getElementById("lSenha").classList.remove("tituloCampo");
+        document.getElementById("lSenha").classList.add("tituloCampoErro");
 
         document.getElementById("tConfirmSenha").classList.remove("inputFormulario");
         document.getElementById("tConfirmSenha").classList.add("inputFormularioErro");
+        document.getElementById("lConfirmSenha").classList.remove("tituloCampo");
+        document.getElementById("lConfirmSenha").classList.add("tituloCampoErro");
 
         globalErrorCampo = true;
     }
