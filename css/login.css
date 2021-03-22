@@ -1,3 +1,4 @@
+
 .body{
     margin: 0;
     background-color: #111111;
@@ -82,11 +83,27 @@
     cursor: pointer
 }
 
-.campo-obrigatorio{
-    border: solid 1px #FA5858;
+/* ERRO */
+.tr-erro{
+    height:30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* RESPONSIVIDADE */
+@media (max-width: 720px) {
+    .cabecalho{font-size: 2rem;}
+    .card{font-size: 2rem;}
+}
 
+@media (max-width: 450px) {
+    .login-table{font-size: 1.1rem;}
+    .input-login{font-size: 1rem;}
+}
+
+@media (max-width: 300px) {
+    .card{font-size: 2rem;}
+    .input-login{font-size: 1rem;}
+}
 
 
 
