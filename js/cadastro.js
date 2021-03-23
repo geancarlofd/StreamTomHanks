@@ -21,6 +21,7 @@ window.onload = function () {
         senhasConfirm();
 
         if (globalErrorCampo == false) {
+            hashSenha(senha);
             limparCampos();
             alert('Formulario enviado com sucesso');
 
@@ -71,6 +72,7 @@ function senhasConfirm() {
         document.getElementById("tConfirmSenha").classList.add("inputFormulario");
         document.getElementById("lConfirmSenha").classList.remove("tituloCampoErro");
         document.getElementById("lConfirmSenha").classList.add("tituloCampo");
+
     }
     else{
         document.getElementById("erroAviso").innerHTML = "Senhas não compatíveis";
@@ -90,8 +92,20 @@ function senhasConfirm() {
 
 }
 
-function limparCampos() {
+function hashSenha(senha){
     
+    var senha_hash_md5 = $.MD5(senha);
+
+    var myBitArray = sjcl.hash.sha256.hash(senha);
+    var senha_hash_sha256 = sjcl.codec.hex.fromBits(myBitArray);
+
+
+    alert(senha_hash_md5);
+    alert(senha_hash_sha256);
+}
+
+function limparCampos() {
+
     document.getElementById("tNomeCompleto").value = '';
     document.getElementById("tDataDeNascimento").value = '';
     document.getElementById("tEmail").value = '';
