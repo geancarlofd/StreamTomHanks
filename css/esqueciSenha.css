@@ -13,6 +13,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* CARD */
 .texto-entrar{
     font-size: 30px;
     color: #e6e6e6;
@@ -81,4 +82,20 @@
 .btn-esqueciSenha:hover{
     background-color: #e07f00;
     cursor: pointer
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 720px) {
+    .cabecalho{font-size: 2rem;}
+    .card{font-size: 2rem;}
+}
+
+@media (max-width: 450px) {
+    .login-table{font-size: 1.1rem;}
+    .input-esqueciSenha{font-size: 1rem;}
+}
+
+@media (max-width: 300px) {
+    .card{font-size: 2rem;}
+    .input-esqueciSenha{font-size: 1rem;}
 }
