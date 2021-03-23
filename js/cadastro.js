@@ -57,8 +57,6 @@ function verificador(idCampo, idTexto) {
 function senhasConfirm() {
     var senha = document.getElementById("tSenha").value;
     var confirmarSenha = document.getElementById("tConfirmSenha").value;
-    console.log(document.getElementById("tSenha").value)
-    console.log(document.getElementById("tConfirmSenha").value)
 
     if (senha == confirmarSenha){
 
@@ -94,4 +92,14 @@ function senhasConfirm() {
 
 function limparCampos() {
     
+    document.getElementById("tNomeCompleto").value = '';
+    document.getElementById("tDataDeNascimento").value = '';
+    document.getElementById("tEmail").value = '';
+    document.getElementById("tSenha").value = '';
+    document.getElementById("tConfirmSenha").value = '';
+    document.getElementById("tNomeCompletoCartao").value = '';
+    document.getElementById("tNumeroDoCartao").value = '';
+    document.getElementById("tValidadeDoCartao").value = '';
+    document.getElementById("tCodigoDeSeguranca").value = '';
+    document.getElementById("tCpfCnpj").value = '';
 }
