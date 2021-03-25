@@ -21,10 +21,11 @@ window.onload = function () {
         senhasConfirm();
 
         if (globalErrorCampo == false) {
-            hashSenha(document.getElementById("tSenha").value);
-            limparCampos();
+            var senha  = hashSenha(document.getElementById("tSenha").value);
+            fLocalComunicaServidor("inserir");
             enviarEmail();
             alert('Formulario enviado com sucesso');
+            limparCampos();
 
             document.getElementById("tNomeCompleto").focus();
         }
@@ -116,4 +117,18 @@ function limparCampos() {
     document.getElementById("tValidadeDoCartao").value = '';
     document.getElementById("tCodigoDeSeguranca").value = '';
     document.getElementById("tCpfCnpj").value = '';
+}
+
+function fLocalComunicaServidor(arquivo){
+    var valores = $("#tabelaFormulario").serialize();
+    console.log(valores);
+    $.ajax({
+        type:"POST",
+        dataType: "json",
+        data: valores,
+        url: "../php/"+ arquivo + ".php",
+        success:function(retorno){
+
+        }
+    });
 }
