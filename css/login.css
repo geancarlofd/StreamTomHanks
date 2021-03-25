@@ -91,18 +91,29 @@
 }
 
 /* RESPONSIVIDADE */
-@media (max-width: 720px) {
-    .cabecalho{font-size: 2rem;}
-    .card{font-size: 2rem;}
+
+/*@media (max-width: 1024px) {
+    .cabecalho{font-size: 3.5rem;}
+    .card{font-size: 2rem; margin-top: 80px; width: 530px; height: 500px;}
+    .texto-entrar{font-size: 2.9rem;}
+    .login-table{font-size: 1.7rem;}
+    .input-login{font-size: 1.7rem; width: 430px; height: 60px;}
+    .btn-login{font-size: 1.7rem; width: 430px; height: 60px;}
+}*/
+
+@media (max-width: 820px) {
+    .cabecalho{font-size: 2.3rem;}
+    .card{font-size: 2rem; margin-top: 60px;}
 }
 
-@media (max-width: 450px) {
-    .login-table{font-size: 1.1rem;}
-    .input-login{font-size: 1rem;}
+@media (max-width: 320px) {
+    .cabecalho{font-size: 1.6rem;}
+    .card{font-size: 1.3rem;}
+    .texto-entrar{font-size: 1.7rem;}
+    .login-table{font-size: 1rem;}
+    .input-login{font-size: 0.8rem; width: 275px; height: 40px;}
+    .btn-login{width: 270px;}
 }
 
-@media (max-width: 300px) {
-    .card{font-size: 2rem;}
-    .input-login{font-size: 1rem;}
-}
+
  
