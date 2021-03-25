@@ -21,8 +21,9 @@ window.onload = function () {
         senhasConfirm();
 
         if (globalErrorCampo == false) {
-            hashSenha(senha);
+            hashSenha(document.getElementById("tSenha").value);
             limparCampos();
+            enviarEmail();
             alert('Formulario enviado com sucesso');
 
             document.getElementById("tNomeCompleto").focus();
@@ -59,7 +60,7 @@ function senhasConfirm() {
     var senha = document.getElementById("tSenha").value;
     var confirmarSenha = document.getElementById("tConfirmSenha").value;
 
-    if (senha == confirmarSenha){
+    if (senha == confirmarSenha && senha.length >= 8){
 
         document.getElementById("erroAviso").innerHTML = " ";
 
@@ -93,15 +94,14 @@ function senhasConfirm() {
 }
 
 function hashSenha(senha){
-    
+
     var senha_hash_md5 = $.MD5(senha);
 
-    var myBitArray = sjcl.hash.sha256.hash(senha);
-    var senha_hash_sha256 = sjcl.codec.hex.fromBits(myBitArray);
+    return senha_hash_md5;
+}
 
+function enviarEmail(){
 
-    alert(senha_hash_md5);
-    alert(senha_hash_sha256);
 }
 
 function limparCampos() {
