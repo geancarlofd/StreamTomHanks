@@ -12,7 +12,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* Texto */
+/* TEXTO */
 .texto{
     display: flex;
     flex-direction: row;
@@ -31,7 +31,7 @@
     color: #e6e6e6;
 }
 
-/* Opções */
+/* OPÇÕES */
 .botoes{
     display: flex;
     flex-direction: row;
@@ -61,16 +61,26 @@
     cursor: pointer
 }
 
+/* RESPONSIVIDADE */
+
+@media (max-width: 1024px) {
+    .cabecalho{font-size: 3.5rem;}
+    .texto-stre{font-size: 3.1rem; margin-top: 60px;}
+    .btn-opcao{font-size: 1.6rem; width: 450px; height: 55px;}
+}
 
 @media (max-width: 720px) {
     .cabecalho{font-size: 2rem;}
-    .texto-stre{font-size: 2rem;}
-    .btn-opcao{font-size: 1.2rem;}
+    .texto-stre{font-size: 2rem; margin-top: 60px;}
+    .btn-opcao{font-size: 1.1rem; width: 300px; height: 40px;}
 }
 
 @media (max-width: 450px) {
-    .texto-stre{font-size: 1.7rem;}
-    .btn-opcao{font-size: 1.1rem;}
+    .texto-stre{font-size: 1.8rem; margin-top: 60px;}
+    .btn-opcao{font-size: 1rem; width: 250px; height: 38px;}
 }
 
-
+@media (max-width: 280px) {
+    .texto-stre{font-size: 1.7rem; margin-top: 60px;}
+    .btn-opcao{font-size: 1rem; width: 180px; height: 36px;}
+}
