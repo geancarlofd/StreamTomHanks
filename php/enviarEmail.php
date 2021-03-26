@@ -1,12 +1,17 @@
 
  <?php
 
+	$nomeUsuario = $_POST["nomeCompleto"];
+	$emailUsuario = $_POST["email"];
+	echo $nomeUsuario;
+
 	date_default_timezone_set('Etc/UTC');
 	require 'PHPMailer/PHPMailerAutoload.php';
     
-	$tituloEmail = "Perdi a bola...";
+	$tituloEmail = "Cadastro StreamHanks";
 
-	$message = 'WILSOOOONNNNNNNNNNNNNNNNN';
+	$message = 'Olá, '.$nomeUsuario.'. Seu cadastro foi realizado com sucesso.<br><br>Bem-Vindo ao StreamHanks, o sistema de streaming do Tom Hanks.
+				<br><br>Atenciosamente,<br><br>Equipe StreamHanks.';
 
 	$mail= new PHPMailer;
 	$mail->IsSMTP(); 
@@ -19,7 +24,7 @@
 	$mail->Username = 'streamhanks'; 
 	$mail->Password = '1234wilson';
 	$mail->SetFrom('streamhanks@gmail.com', 'Stream Hanks');
-	$mail->addAddress('isadoraterres8@gmail.com','');
+	$mail->addAddress($emailUsuario,'');
 	$mail->Subject = $tituloEmail;
 	$mail->msgHTML($message);
        

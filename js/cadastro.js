@@ -21,17 +21,17 @@ window.onload = function () {
         senhasConfirm();
 
         if (globalErrorCampo == false) {
-            var senha  = hashSenha(document.getElementById("tSenha").value);
+            hashSenha(document.getElementById("tSenha").value);
             fLocalComunicaServidor("inserir");
-            enviarEmail();
+            fLocalComunicaServidor("enviarEmail");
             alert('Formulario enviado com sucesso');
             limparCampos();
 
             document.getElementById("tNomeCompleto").focus();
         }
+        return false;
     }
 }
-
 
 function verificador(idCampo, idTexto) {
     var valor = document.getElementById(idCampo).value;
@@ -94,19 +94,7 @@ function senhasConfirm() {
 
 }
 
-function hashSenha(senha){
-
-    var senha_hash_md5 = $.MD5(senha);
-
-    return senha_hash_md5;
-}
-
-function enviarEmail(){
-
-}
-
 function limparCampos() {
-
     document.getElementById("tNomeCompleto").value = '';
     document.getElementById("tDataDeNascimento").value = '';
     document.getElementById("tEmail").value = '';
@@ -119,6 +107,14 @@ function limparCampos() {
     document.getElementById("tCpfCnpj").value = '';
 }
 
+function hashSenha(senha) {
+    var senha_hash_md5 = $.MD5(senha);
+
+    document.getElementById("senhaHash").value = senha_hash_md5;
+
+    return senha_hash_md5;
+}
+
 function fLocalComunicaServidor(arquivo){
     var valores = $("#tabelaFormulario").serialize();
     console.log(valores);
@@ -127,8 +123,6 @@ function fLocalComunicaServidor(arquivo){
         dataType: "json",
         data: valores,
         url: "../php/"+ arquivo + ".php",
-        success:function(retorno){
-
-        }
+        success:function(retorno){}
     });
 }
