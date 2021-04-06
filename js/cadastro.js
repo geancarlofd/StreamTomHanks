@@ -7,6 +7,7 @@ window.onload = function () {
 
         globalErrorCampo = false;
 
+        /*Verifica campos vazios*/
         verificador("tNomeCompleto", "lNomeCompleto");
         verificador("tDataDeNascimento", "lDataDeNascimento");
         verificador("tEmail","lEmail");
@@ -18,12 +19,12 @@ window.onload = function () {
         verificador("tCodigoDeSeguranca","lCodigoDeSeguranca");
         verificador("tCpfCnpj","lCpfCnpj");
 
-        senhasConfirm();
+        senhasConfirm();/*Chamada da function que valida as senhas*/
 
-        if (globalErrorCampo == false) {
-            hashSenha(document.getElementById("tSenha").value);
-            fLocalComunicaServidor("inserir");
-            fLocalComunicaServidor("enviarEmail");
+        if (globalErrorCampo == false) {/*Caso todos os campos forem validos*/
+
+            hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
+            fLocalComunicaServidor("cadastroUsuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
             alert('Formulario enviado com sucesso');
             limparCampos();
 
@@ -33,7 +34,7 @@ window.onload = function () {
     }
 }
 
-function verificador(idCampo, idTexto) {
+function verificador(idCampo, idTexto) { /*Funcao que verifica se os campos estao vazios*/
     var valor = document.getElementById(idCampo).value;
     var elementoIpt = document.getElementById(idCampo);
     var elementoTxt = document.getElementById(idTexto);
@@ -57,7 +58,7 @@ function verificador(idCampo, idTexto) {
     }
 }
 
-function senhasConfirm() {
+function senhasConfirm() { /*Funcao que verifica se as senhas sao validas*/
     var senha = document.getElementById("tSenha").value;
     var confirmarSenha = document.getElementById("tConfirmSenha").value;
 
@@ -94,7 +95,7 @@ function senhasConfirm() {
 
 }
 
-function limparCampos() {
+function limparCampos() {/*Funcao que limpa os campos/inputs*/
     document.getElementById("tNomeCompleto").value = '';
     document.getElementById("tDataDeNascimento").value = '';
     document.getElementById("tEmail").value = '';
@@ -107,19 +108,19 @@ function limparCampos() {
     document.getElementById("tCpfCnpj").value = '';
 }
 
-function hashSenha(senha) {
+function hashSenha(senha) { /*Funcao Hash*/
     var senha_hash_md5 = $.MD5(senha);
 
-    document.getElementById("senhaHash").value = senha_hash_md5;
-
-    return senha_hash_md5;
+    document.getElementById("senhaHash").value = senha_hash_md5;/*Enviando para o input invisivel*/
 }
 
-function fLocalComunicaServidor(arquivo){
-    var valores = $("#tabelaFormulario").serialize();
+function fLocalComunicaServidor(arquivo){ /*Funcao de comunicacao para acessar o PHP*/
+
+    var valores = $("#formulario").serialize();/*Coletando todos os dados do formulario do cadastro utilizando o serialize*/
     console.log(valores);
     $.ajax({
         type:"POST",
+        data: window.location.href,
         dataType: "json",
         data: valores,
         url: "../php/"+ arquivo + ".php",

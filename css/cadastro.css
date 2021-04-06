@@ -81,7 +81,7 @@ body{
 }
 
 @media (max-width:820px) {
-    .tabelaFormulario {z-index: 10;}
+    .formulario {z-index: 10;}
     .wilsonBack {
         width: 450px;
         position: absolute;
