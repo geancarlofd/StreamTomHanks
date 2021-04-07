@@ -9,6 +9,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .wilsonBack{
@@ -53,7 +54,7 @@ body{
 
 .inputFormulario {
     padding: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
     width: 100%;
     height: 40px;
     border-radius: 2px;
@@ -89,7 +90,32 @@ body{
         z-index: 9;
     }
 }
-@media (max-width:550){
-    .wilsonBack{width: 300px;}
-    .firstInput {width:20px;height:25px;}
+
+@media (max-width: 510px){
+    .wilsonBack {width: 400px;}
+    .tabelaFormulario {
+        margin: 10%;
+        margin-top:0;
+    }
+    .tituloCampo {font-size: 13px;}
+    .tituloCampoErro {font-size:13px;}
+}
+@media (max-width: 320px) {
+    .wilsonBack {left: 2px;}
+
+}
+
+@media (max-width: 300px){
+    .wilsonBack{left:5px;}
+    .tabelaFormulario {
+        margin-left: 15%;
+    }
+    .tituloCampo {
+        font-size: 11px;
+    }
+
+    .tituloCampoErro {
+        font-size: 11px;
+    }
+
 }

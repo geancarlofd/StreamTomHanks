@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background: #111111;
+    overflow: hidden;
 }
 
 .dConfirmacao {
@@ -14,12 +15,11 @@ body {
 
 .wilsonBack {
     width: 450px;
-    opacity: 60%;
 }
 
 .tConfirmacao{
     color: #e6e6e6;
-    font-size: 1.6vw;
+    font-size: 25px;
     font-family: Arial, Helvetica,sans-serif;
     text-align:center;
 }
@@ -37,8 +37,13 @@ body {
     
 }
 
+.btnEntrar:hover{
+    background-color: #e07f00;
+    cursor: pointer;
+}
+
 @media (max-width:820px) {
-    .dConfirmacao {
+    .tableConfirmacao {
         z-index: 10;
     }
 
@@ -46,12 +51,10 @@ body {
         width: 450px;
         position: absolute;
         opacity: 50%;
-        z-index: 5;
+        z-index: 9;
     }
 }
 
-@media (max-width:550) {
-    .wilsonBack {
-        width: 300px;
-    }
+@media (max-width:520px) {
+    .wilsonBack{width:350px;}
 }
