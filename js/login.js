@@ -1,19 +1,21 @@
 
+
 var bdUser = window.localStorage;
 
 window.onload = function() {
 
-    document.getElementById("inputUser").focus();
+    document.getElementById("inputEmail").focus();
 
     document.getElementById('btnLogin').onclick = function (){
-		limparErro();
-        verificarHASH();
+
         verificarUsuario();
+        limparErro();
+        fLocalComunicaServidor("senhalogin");
     }
 };
 
 function verificarUsuario() {
-    var user = document.getElementById('inputUser').value;
+    var user = document.getElementById('inputEmail').value;
     var senha = document.getElementById('inputSenha').value;
 
     var dados = bdUser.getItem("dados");
@@ -22,7 +24,7 @@ function verificarUsuario() {
         for (var i = 0; i < dados.length; i++) {
             if (user == dados[i][0] || user == dados[i][2]) {
                 if (senha == dados[i][3])
-                    window.location.href = "../index.html";
+                    window.location.href = "../pages/login.html";
                 else {
                     erro();
                 }
@@ -38,16 +40,14 @@ function verificarUsuario() {
 
 }
 
-function verificarHASH(){
-    var senha_hash_md5 = $.MD5($('#inputSenha').val());
+function hashSenha(senha) { 
+    var senha_hash_md5 = $.MD5(senha);
 
-    alert(senha_hash_md5);
-
-    return false;
+   return(senha_hash_md5);
 }
 
 function limparInput(){
-    document.getElementById("inputUser").value = "";
+    document.getElementById("inputEmail").value = "";
     document.getElementById("inputSenha").value = "";    
 }
 
@@ -62,4 +62,18 @@ function limparErro(){
     var element = document.getElementById("trErro");
     element.classList.remove("tr-erro");
     element.value = "";
+}
+
+function fLocalComunicaServidor(senhalogin){ 
+
+    var valores = $("#formularioLogin").serialize();
+    console.log(valores);
+    $.ajax({
+        type:"POST",
+        data: window.location.href,
+        dataType: "json",
+        data: valores,
+        url: "../php/"+ senhalogin + ".php",
+        success:function(retorno){}
+    });
 }
