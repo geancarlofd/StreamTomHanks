@@ -1,49 +1,13 @@
 
 
-var bdUser = window.localStorage;
-
 window.onload = function() {
 
     document.getElementById("inputEmail").focus();
 
     document.getElementById('btnLogin').onclick = function (){
-
-        verificarUsuario();
-        limparErro();
+        fLocalComunicaServidor();
     }
 };
-
-function verificarUsuario() {
-    var user = document.getElementById('inputEmail').value;
-    var senha = document.getElementById('inputSenha').value;
-
-    var dados = bdUser.getItem("dados");
-
-    if(dados != null) {
-        for (var i = 0; i < dados.length; i++) {
-            if (user == dados[i][0] || user == dados[i][2]) {
-                if (senha == dados[i][3])
-                    window.location.href = "../pages/login.html";
-                else {
-                    erro();
-                }
-            }
-            else {
-                erro();
-            }
-        }
-    }
-    else {
-        erro();
-    }
-
-}
-
-function hashSenha(senha) { 
-    var senha_hash_md5 = $.MD5(senha);
-
-   return(senha_hash_md5);
-}
 
 function limparInput(){
     document.getElementById("inputEmail").value = "";
@@ -61,4 +25,35 @@ function limparErro(){
     var element = document.getElementById("trErro");
     element.classList.remove("tr-erro");
     element.value = "";
+}
+
+function hashSenha(senha) {
+    var senha_hash_md5 = $.MD5(senha);
+
+    return senha_hash_md5;
+}
+
+function fLocalComunicaServidor() {
+
+    var senhaHash = hashSenha(document.getElementById("inputSenha").value);
+
+    $.ajax({
+        type: "POST",
+        data: {
+            usuario: $("#inputEmail").val(),
+            usuarioSenha: senhaHash.toString(),
+        },
+        dataType: "json",
+        url: "../php/login.php",
+        success: function (retorno) {
+            if (retorno == "valido") {
+                limparErro();
+                window.location.href = "../pages/telaInicial.html";
+            }
+            else {
+                erro();
+                document.getElementById("inputEmail").focus();
+            }
+        }
+    });
 }

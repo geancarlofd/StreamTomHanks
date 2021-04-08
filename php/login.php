@@ -1,7 +1,7 @@
 <?php
+    $login = $_POST["usuario"];
+    $senha = $_POST["usuarioSenha"];
 
-    $login = $_POST["email"];
-    $senha = $_POST["senha"];
 
     $con = mysqli_connect("localhost:3306", "root", "", "streamhanks"); /*Conectando com o banco*/
     
@@ -11,10 +11,11 @@
 
     if($row >= 1){
         echo json_encode("valido");
-        
+            
     }else{
         echo json_encode("invalido");
     }
-    
+        
     mysqli_close($con);
+
 ?>
