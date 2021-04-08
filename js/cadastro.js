@@ -1,11 +1,14 @@
 var globalErrorCampo = false;
 
+var globalErroCadastro = false;
+
 window.onload = function () {
     document.getElementById("tNomeCompleto").focus();
 
     document.getElementById("btnCadastrar").onclick = function () {
 
         globalErrorCampo = false;
+        globalErroCadastro = false;
 
         /*Verifica campos vazios*/
         verificador("tNomeCompleto", "lNomeCompleto");
@@ -25,12 +28,20 @@ window.onload = function () {
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
             fLocalComunicaServidor("cadastroUsuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
-            limparCampos();
 
-            document.getElementById("tNomeCompleto").focus();
+            if(globalErroCadastro == false){
+                cadastroValido();
+            }
         }
         return false;
     }
+}
+
+function cadastroValido(){
+    alert('Cadastro realizado com sucesso');
+    alert('Faça a confirmação por e-mail');
+    limparCampos();
+    window.location.href = "../index.html";
 }
 
 function verificador(idCampo, idTexto) { /*Funcao que verifica se os campos estao vazios*/
@@ -125,11 +136,9 @@ function fLocalComunicaServidor(arquivo){ /*Funcao de comunicacao para acessar o
         success:function(retorno){
             if (retorno == "invalido") {
                 alert("E-mail já cadastro. Tente outro ou faça login.");
+                limparCampos();
                 document.getElementById("tNomeCompleto").focus();
-            }else{
-                alert('Cadastro realizado com sucesso');
-                alert('Faça a confirmação por e-mail')
-                window.location.href = "../index.html";
+                globalErroCadastro = true;
             }
         }
     });

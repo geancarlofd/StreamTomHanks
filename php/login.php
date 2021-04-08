@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     $login = $_POST["usuario"];
     $senha = $_POST["usuarioSenha"];
 
@@ -10,9 +12,11 @@
     $row = mysqli_num_rows($result);//armazenando rows
 
     if($row >= 1){
+        $_SESSION['usuario'] = $login;
         echo json_encode("valido");
             
     }else{
+        $_SESSION['nao_autenticado'] = true;
         echo json_encode("invalido");
     }
         

@@ -48,7 +48,7 @@ function fLocalComunicaServidor() {
         success: function (retorno) {
             if (retorno == "valido") {
                 limparErro();
-                window.location.href = "../pages/telaInicial.html";
+                window.location.href = "../php/telaInicial.php";
             }
             else {
                 erro();

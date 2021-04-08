@@ -24,6 +24,7 @@
 	if($row > 0){
 		 echo json_encode("invalido");
 	}else{
+		echo json_encode("valido");
 		/*Executando a query para o banco*/
     	/*Sera a insercao de dados na tabela*/
     	mysqli_query($con, "INSERT INTO usuario (NomeCompleto, DataNascimento, Email, Senha, Cartao_NomeCompleto, Cartao_Numero, Cartao_Validade, Cartao_CodigoSeguranca, Cpf, chave)
@@ -67,8 +68,7 @@
 
 		// Configure o Gmail para permitir aplicativos de terceiro 
 		// https://myaccount.google.com/lesssecureapps
-
-		echo json_encode("valido");
+	
 	}
 		
 
