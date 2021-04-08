@@ -30,11 +30,11 @@
         <div class="botoes">
             <table class="botoes-table">
                 <tr>
-                    <td><button class="btn-opcao" id="btnLogin" onclick="location.href='pages/login.html'">Entrar</button></td>
+                    <td><button class="btn-opcao" id="btnLogin" onclick="location.href='pages/login.php'">Entrar</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class="btn-opcao" id="btnLogin" onclick="location.href='pages/cadastro.html'">Cadastrar-se</button></td>
+                    <td><button class="btn-opcao" id="btnLogin" onclick="location.href='pages/cadastro.php'">Cadastrar-se</button></td>
                 </tr>
             </table>
         </div>

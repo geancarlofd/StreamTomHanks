@@ -33,7 +33,7 @@
                     </tr>
                     
                     <tr>
-                        <td><button class="btn-esqueciSenha" id="btnesqueciSenha" onclick="location.href='../pages/login.html'">Enviar</button></td>
+                        <td><button class="btn-esqueciSenha" id="btnesqueciSenha" onclick="location.href='../pages/login.php'">Enviar</button></td>
                     </tr>
                 </table>
             </div>

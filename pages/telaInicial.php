@@ -1,5 +1,5 @@
 <?php
-    include('verificaLogin.php');
+    include('../php/verificaLogin.php');
 ?>
 
 <html>
@@ -17,7 +17,7 @@
     <div class="header">
         <h1>StreamHanks</h1>
         <h2>Olá, :)</h2>
-        <a href="logout.php"><button class="btnSair">Sair</button></a>
+        <a href="../php/logout.php"><button class="btnSair">Sair</button></a>
     </div>
 
     <div class="filmes">

@@ -35,7 +35,7 @@
 		//ENVIO DE EMAIL
 		$emailUsuario = $_POST["email"];//email do usuario
 
-		$link ="http://localhost/StreamTomHanks/StreamTomHanks/php/confirmacaoUsuario.php?chave=".$chave; //link de confirmacao + chave unica do usuario
+		$link ="http://localhost/StreamTomHanks/StreamTomHanks/pages/confirmacaoUsuario.php?chave=".$chave; //link de confirmacao + chave unica do usuario
 
 		date_default_timezone_set('Etc/UTC');
 		require 'PHPMailer/PHPMailerAutoload.php';

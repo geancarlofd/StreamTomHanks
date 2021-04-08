@@ -28,20 +28,9 @@ window.onload = function () {
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
             fLocalComunicaServidor("cadastroUsuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
-
-            if(globalErroCadastro == false){
-                cadastroValido();
-            }
         }
         return false;
     }
-}
-
-function cadastroValido(){
-    alert('Cadastro realizado com sucesso');
-    alert('Faça a confirmação por e-mail');
-    limparCampos();
-    window.location.href = "../index.html";
 }
 
 function verificador(idCampo, idTexto) { /*Funcao que verifica se os campos estao vazios*/

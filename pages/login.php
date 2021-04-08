@@ -46,7 +46,7 @@
                 </tr>
 
                 <tr>
-                    <td><label onclick="location.href='../pages/esqueciSenha.html'" class="texto-senha">Esqueci minha senha</label></td>
+                    <td><label onclick="location.href='../pages/esqueciSenha.php'" class="texto-senha">Esqueci minha senha</label></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" id="horns" name="horns">
