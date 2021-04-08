@@ -10,7 +10,6 @@ window.onload = function() {
 
         verificarUsuario();
         limparErro();
-        fLocalComunicaServidor("senhalogin");
     }
 };
 
@@ -62,18 +61,4 @@ function limparErro(){
     var element = document.getElementById("trErro");
     element.classList.remove("tr-erro");
     element.value = "";
-}
-
-function fLocalComunicaServidor(senhalogin){ 
-
-    var valores = $("#formularioLogin").serialize();
-    console.log(valores);
-    $.ajax({
-        type:"POST",
-        data: window.location.href,
-        dataType: "json",
-        data: valores,
-        url: "../php/"+ senhalogin + ".php",
-        success:function(retorno){}
-    });
 }
