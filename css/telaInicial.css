@@ -20,3 +20,8 @@ body{
     border-radius: 2px;
     float: left;
 }
+
+.btnSair:hover{
+    background-color: #e07f00;
+    cursor: pointer;
+}
