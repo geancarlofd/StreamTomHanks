@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="../css/confirmacaoEmail.css">
 
-    <link rel="shortcut icon" href="../img/wilson.png">
+    <link rel="shortcut icon" href="img/wilson.png">
     <title>Confirmação de E-mail - StreamHanks</title>
 
  </head>

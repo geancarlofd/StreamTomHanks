@@ -25,7 +25,6 @@ window.onload = function () {
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
             fLocalComunicaServidor("cadastroUsuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
-            alert('Formulario enviado com sucesso');
             limparCampos();
 
             document.getElementById("tNomeCompleto").focus();
@@ -117,13 +116,21 @@ function hashSenha(senha) { /*Funcao Hash*/
 function fLocalComunicaServidor(arquivo){ /*Funcao de comunicacao para acessar o PHP*/
 
     var valores = $("#formulario").serialize();/*Coletando todos os dados do formulario do cadastro utilizando o serialize*/
-    console.log(valores);
     $.ajax({
         type:"POST",
         data: window.location.href,
         dataType: "json",
         data: valores,
         url: "../php/"+ arquivo + ".php",
-        success:function(retorno){}
+        success:function(retorno){
+            if (retorno == "invalido") {
+                alert("E-mail já cadastro. Tente outro ou faça login.");
+                document.getElementById("tNomeCompleto").focus();
+            }else{
+                alert('Cadastro realizado com sucesso');
+                alert('Faça a confirmação por e-mail')
+                window.location.href = "../index.html";
+            }
+        }
     });
 }
