@@ -21,7 +21,7 @@ $row = mysqli_num_rows($result);
 
 if($row == 1){
   $_SESSION['inputEmail'] = $email;
-  header('Location: ../pages/painel.php')
+  header('Location: ../pages/painel.php');
   exit();
 }else{
   header('Location: ../pages/login.html');
