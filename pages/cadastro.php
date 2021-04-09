@@ -4,11 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="../js/hash/jquery-3.3.1.js"></script>
-    <script src='../js/hash/jquery.md5.js'></script>
     <script type="text/javascript" src="../js/cadastro.js"></script>
 
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <script type="text/javascript" src="../js/hash/jquery-3.3.1.js"></script><!--jQuery-->
+    <script src='../js/hash/jquery.md5.js'></script><!--MD5-->
+    
+    <script type="text/javascript" src="../js/cadastro.js"></script>
+
+    <link rel="stylesheet" href="../css/cadastro.css"><!--CSS cadastro-->
     
     <link rel="shortcut icon" href="../img/wilson.png">
     <title>Cadastro - StreamHanks</title>
@@ -79,7 +82,7 @@
                     <td><input type="text" placeholder="CVV"  maxlength="4" class="inputFormulario" id="tCodigoDeSeguranca" name="cartao_CodigoSeguranca"/></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="tituloCampo" id="lCpfCnpj">CPF/CNPJ</td>
+                    <td colspan="2" class="tituloCampo " id="lCpfCnpj">CPF/CNPJ</td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="text" maxlength="14" class="inputFormulario" id="tCpfCnpj" name="cpf"/></td>

@@ -1,14 +1,11 @@
 var globalErrorCampo = false;
 
-var globalErroCadastro = false;
-
 window.onload = function () {
     document.getElementById("tNomeCompleto").focus();
 
     document.getElementById("btnCadastrar").onclick = function () {
 
         globalErrorCampo = false;
-        globalErroCadastro = false;
 
         /*Verifica campos vazios*/
         verificador("tNomeCompleto", "lNomeCompleto");
@@ -27,7 +24,8 @@ window.onload = function () {
         if (globalErrorCampo == false) {/*Caso todos os campos forem validos*/
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
-            fLocalComunicaServidor("cadastroUsuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
+            fLocalComunicaServidor("cadastro_usuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
+            limparCampos();
         }
         return false;
     }
@@ -124,10 +122,14 @@ function fLocalComunicaServidor(arquivo){ /*Funcao de comunicacao para acessar o
         url: "../php/"+ arquivo + ".php",
         success:function(retorno){
             if (retorno == "invalido") {
+                console.log("invalido entrou");
                 alert("E-mail já cadastro. Tente outro ou faça login.");
                 limparCampos();
                 document.getElementById("tNomeCompleto").focus();
-                globalErroCadastro = true;
+            }
+            else{
+                console.log("entrou");
+                window.location.href = "../pages/tela_inicial.php";
             }
         }
     });
