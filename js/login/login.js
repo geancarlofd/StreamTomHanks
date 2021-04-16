@@ -45,9 +45,8 @@ function fLocalComunicaServidor() {
         },
         dataType: "json",
         url: "../php/login.php",
-        success: function (retorno) {
+        success: function(retorno) {
             if (retorno == "valido") {
-                limparErro();
                 window.location.href = "../pages/tela_inicial.php";
             }
             else {

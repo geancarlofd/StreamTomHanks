@@ -7,28 +7,31 @@ window.onload = function () {
 
         globalErrorCampo = false;
 
-        /*Verifica campos vazios*/
-        verificador("tNomeCompleto", "lNomeCompleto");
-        verificador("tDataDeNascimento", "lDataDeNascimento");
-        verificador("tEmail","lEmail");
-        verificador("tSenha","lSenha");
-        verificador("tConfirmSenha","lConfirmSenha");
-        verificador("tNomeCompletoCartao","lNomeCompletoCartao");
-        verificador("tNumeroDoCartao", "lNumeroDoCartao");
-        verificador("tValidadeDoCartao", "lValidadeDoCartao");
-        verificador("tCodigoDeSeguranca","lCodigoDeSeguranca");
-        verificador("tCpfCnpj","lCpfCnpj");
+        campos();
 
         senhasConfirm();/*Chamada da function que valida as senhas*/
 
         if (globalErrorCampo == false) {/*Caso todos os campos forem validos*/
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
-            fLocalComunicaServidor("cadastro_usuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
-            limparCampos();
+            fLocalComunicaServidor("form-cadastrar","cadastro_usuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
         }
         return false;
     }
+}
+
+function campos(){
+    /*Verifica campos vazios*/
+    verificador("tNomeCompleto", "lNomeCompleto");
+    verificador("tDataDeNascimento", "lDataDeNascimento");
+    verificador("tEmail", "lEmail");
+    verificador("tSenha", "lSenha");
+    verificador("tConfirmSenha", "lConfirmSenha");
+    verificador("tNomeCompletoCartao", "lNomeCompletoCartao");
+    verificador("tNumeroDoCartao", "lNumeroDoCartao");
+    verificador("tValidadeDoCartao", "lValidadeDoCartao");
+    verificador("tCodigoDeSeguranca", "lCodigoDeSeguranca");
+    verificador("tCpfCnpj", "lCpfCnpj");
 }
 
 function verificador(idCampo, idTexto) { /*Funcao que verifica se os campos estao vazios*/
@@ -111,26 +114,30 @@ function hashSenha(senha) { /*Funcao Hash*/
     document.getElementById("senhaHash").value = senha_hash_md5;/*Enviando para o input invisivel*/
 }
 
-function fLocalComunicaServidor(arquivo){ /*Funcao de comunicacao para acessar o PHP*/
+function fLocalComunicaServidor(formulario, arquivo) {
 
-    var valores = $("#formulario").serialize();/*Coletando todos os dados do formulario do cadastro utilizando o serialize*/
+    var dados = $("#" + formulario).serialize();
+
     $.ajax({
-        type:"POST",
-        data: window.location.href,
+        type: "POST",
         dataType: "json",
-        data: valores,
-        url: "../php/"+ arquivo + ".php",
-        success:function(retorno){
-            if (retorno == "invalido") {
-                console.log("invalido entrou");
-                alert("E-mail já cadastro. Tente outro ou faça login.");
-                limparCampos();
-                document.getElementById("tNomeCompleto").focus();
-            }
-            else{
-                console.log("entrou");
-                window.location.href = "../pages/tela_inicial.php";
+        url: "../../php/cadastro/" + arquivo + ".php",
+        data: dados,
+        success: function (retorno) {
+
+            if (retorno.funcao == "cadastro") {
+                if (retorno.status == "s") {
+                    fLocalComunicaServidor("form-cadastrar", "envio_email");
+                    
+                }
+                else {
+                    alert(retorno.mensagem);
+                    limparCampos();
+                    campos();
+                }
             }
         }
+
     });
+
 }
