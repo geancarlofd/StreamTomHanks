@@ -14,7 +14,7 @@ window.onload = function () {
         if (globalErrorCampo == false) {/*Caso todos os campos forem validos*/
 
             hashSenha(document.getElementById("tSenha").value);/*Hash da senha*/
-            fLocalComunicaServidor("form-cadastrar","cadastro_usuario");/*Cadastro provisorio do usuario e envio de email para confirmacao*/
+            fLocalComunicaServidor("form-cadastrar","cadastro_usuario");
         }
         return false;
     }
@@ -128,7 +128,7 @@ function fLocalComunicaServidor(formulario, arquivo) {
             if (retorno.funcao == "cadastro") {
                 if (retorno.status == "s") {
                     fLocalComunicaServidor("form-cadastrar", "envio_email");
-                    
+                    window.location.href = "../../index.html";
                 }
                 else {
                     alert(retorno.mensagem);

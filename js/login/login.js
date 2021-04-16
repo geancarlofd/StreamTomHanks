@@ -5,54 +5,54 @@ window.onload = function() {
     document.getElementById("inputEmail").focus();
 
     document.getElementById('btnLogin').onclick = function (){
-        fLocalComunicaServidor();
-    }
-};
 
-function limparInput(){
+        hashSenha(document.getElementById("inputSenha").value);/*Hash da senha*/
+
+        fLocalComunicaServidor("form-login","login");
+        return false;
+    }
+
+    document.getElementById('lEsqueciSenha').onclick = function (){
+        window.location.href = "../../pages/esqueci_senha/";
+    }
+}
+
+function limparCampos(){
     document.getElementById("inputEmail").value = "";
     document.getElementById("inputSenha").value = "";    
 }
 
 function erro(){
-    var element = document.getElementById("trErro");
-    element.classList.add("tr-erro");
-    element.innerHTML = "<td>Usuário ou Senha incorretos</td>";
-    limparInput();
-}
-    
-function limparErro(){
-    var element = document.getElementById("trErro");
-    element.classList.remove("tr-erro");
-    element.value = "";
+    document.getElementById("erroAviso").innerHTML = "Usuário ou Senha incorretos";
 }
 
-function hashSenha(senha) {
+function hashSenha(senha) { /*Funcao Hash*/
     var senha_hash_md5 = $.MD5(senha);
 
-    return senha_hash_md5;
+    document.getElementById("inputSenha_hash").value = senha_hash_md5;/*Enviando para o input invisivel*/
 }
 
-function fLocalComunicaServidor() {
+function fLocalComunicaServidor(formulario, arquivo) {
 
-    var senhaHash = hashSenha(document.getElementById("inputSenha").value);
+    var dados = $("#" + formulario).serialize();
 
     $.ajax({
         type: "POST",
-        data: {
-            usuario: $("#inputEmail").val(),
-            usuarioSenha: senhaHash.toString(),
-        },
         dataType: "json",
-        url: "../php/login.php",
-        success: function(retorno) {
-            if (retorno == "valido") {
-                window.location.href = "../pages/tela_inicial.php";
-            }
-            else {
-                erro();
-                document.getElementById("inputEmail").focus();
+        url: "../../php/login/" + arquivo + ".php",
+        data: dados,
+        success: function (retorno) {
+
+            if (retorno.funcao == "login") {
+                if (retorno.status == "s") {
+                    window.location.href = "../dashboard/";
+                }
+                else {
+                    erro();
+                }
             }
         }
+
     });
+
 }
