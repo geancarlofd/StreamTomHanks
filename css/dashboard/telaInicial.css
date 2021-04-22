@@ -1,17 +1,28 @@
+
 body{
-    margin:0;
+    margin: 0;
     background: #111111;
+    flex-wrap: wrap;
 }
 
-.header{
-    font-family: Arial, Helvetica, sans-serif;
-    color:#e6e6e6;
-    text-align: center;
-    margin-top:25px;
-    margin-bottom: 100px;
+/* Cabeçalho*/
+.cabecalho{
+    margin-top: -50px;
+    margin-bottom: 200px;
+    width:100%;
+    height: 1rem;
+    text-align:left;
+    font-size: 50px;
+    color: #e6e6e6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* Botão Sair*/
 .btnSair {
+    margin-top: 60px;
+    margin-right: 20px;
     background-color: #ff9100;
     color: #e6e6e6;
     width: 70px;
@@ -25,3 +36,134 @@ body{
     background-color: #e07f00;
     cursor: pointer;
 }
+
+.recipiente{
+    margin: auto;
+    width: 90%;
+}
+
+/* Título */
+
+.recipiente-titulo-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.recipiente-titulo-conteudo h3 {
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 2px;
+}
+
+.recipiente-titulo-conteudo .conteudo button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+.recipiente-titulo-conteudo .conteudo button:hover,
+.recipiente-titulo-conteudo .conteudo button.ativo {
+    background-color: #ff9100;
+}
+
+/* Conteúdo principal e flechas*/
+
+.filmes-recomendados{
+    margin-bottom: 70px;
+}
+
+.filmes-recomendados .indicador-principal{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.filmes-recomendados .indicador-principal .flecha-esquerda,
+.filmes-recomendados .indicador-principal .flecha-direita{
+    position: absolute;
+    bottom: none;
+    background: rgba(0,0,0,0.3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+    opacity: 45%;
+    padding-left: 0;
+    border: none;
+}
+
+.filmes-recomendados .indicador-principal .flecha-esquerda:hover,
+.filmes-recomendados .indicador-principal .flecha-direita:hover{
+    background: rgba(0, 0, 0, .9);
+
+}
+
+.filmes-recomendados .indicador-principal .flecha-esquerda{
+    left: 0;
+}
+
+.filmes-recomendados .indicador-principal .flecha-direita{
+    right: 0;
+}
+
+/* Carrossel */
+
+.filmes-recomendados .conteudo-carrossel{
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.filmes-recomendados .conteudo-carrossel .carrossel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.filmes-recomendados .conteudo-carrossel .carrossel .imagens {
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, .3);
+}
+
+.filmes-recomendados .conteudo-carrossel .carrossel .imagens:hover {
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.filmes-recomendados .conteudo-carrossel .carrossel .imagens img {
+    width: 100%;
+    height: 400px;
+    vertical-align: top;
+}
+
+/* Responsividade*/
+
+@media screen and (max-width: 800px) {
+    .filmes-recomendados .conteudo-carrossel {
+        overflow: visible;
+    }
+
+    .filmes-recomendados .conteudo-carrossel .carrossel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .filmes-recomendados .recipiente,
+    .filmes-recomendados .flecha-esquerda,
+    .filmes-recomendados .flecha-direita {
+        display: none;
+    }
+}
+
