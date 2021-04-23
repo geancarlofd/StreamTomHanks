@@ -12,7 +12,7 @@ body{
 .perfilBody {
     width: 100%;
 }
-/* Botoes laterais */
+/*Botoes barra superior*/
 .perfilBtns {
     width:100%;
     height:50px;
@@ -45,9 +45,8 @@ body{
     background-color: #ff9100;
 }
 .btnColorSair:hover{
-    background-color: #e07f00;
+    background-color: #e02200;
     cursor:pointer;
-    border-radius: 5px;
     color: #ffffff;
     border-radius: 5px;
 }
@@ -79,6 +78,7 @@ body{
     padding-right:50px;
     padding-top:25px;
     float:left;
+    margin-bottom: 100px;
 }
 
 .imagemPerfil{
@@ -86,24 +86,6 @@ body{
     width:200px;
     border-radius:50%;
     float:left;
-}
-
-.btnAlterarAvatar {
-    width:200px;
-    height:30px;
-    margin-top:15px;
-    margin-left:50px;
-    float:left;
-    background-color: #ff9100;
-    border:none;
-    border-radius:2px;
-    color:#eeeeee;
-}
-
-.btnAlterarAvatar:hover{
-    background-color: #e07f00;
-    cursor:pointer;
-    border-radius:1px;
 }
 
 .textPerfil-box {
@@ -120,4 +102,30 @@ body{
 .textPerfilDados{
     color:#ffffff;
     font-size:22px;
+}
+
+.div-btnAlterar {
+    margin-bottom:100px;
+}
+
+
+.btnAlterar {
+    width: 90%;
+    height: 50px;
+    margin-top: 20px;
+    margin-left:5%;
+    margin-right:5%;
+    float: left;
+    background-color: #ff9100;
+    border: none;
+    border-radius: 1px;
+    color: #e6e6e6;
+    float:left;
+}
+
+.btnAlterar:hover {
+    background-color: #e07f00;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #eeeeee;
 }

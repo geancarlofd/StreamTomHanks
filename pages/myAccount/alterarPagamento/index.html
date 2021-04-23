@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../css/myAccount/alterarPagamento.css">
+    <link rel="stylesheet" href="../../../css/myAccount/myAccount.css">
+
+    <script src="../../../js/bibliotecas/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../../js/myAccount/alterarPagamento.js"></script>
+
+    <link rel="shortcut icon" href="../../../img/wilson.png">
+    <title>Alterar Pagamento - StreamHanks</title>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="perfilBody">
+        <div class="perfilBtns">
+            <button id="bPerfil" class="btnOpcoes btnColor">Perfil</button>
+            <button id="bPlanos" class="btnOpcoes btnColor">Planos</button>
+            <button id="bSobrePlataforma" class="btnOpcoes btnColor">Sobre a Plataforma</button>
+            <button id="bSair" class="btnOpcoes btnColorSair">Sair</button>
+        </div>
+        <div class="perfilInfo">
+            <div class="perfilInfo-lateral"></div>
+            <div class="perfilInfo-Central">
+
+                <div class="perfilInfo-formPagamento">
+
+                    <form id="formPagamento">
+                        <table class="table-formPagamento">
+                            <tr>
+                                <td colspan="2" class="tituloCampo" id="lNomeCompletoCartao">Nome Completo (Impresso no Cartão)</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" class="inputFormulario" id="tNomeCompletoCartao" name="cartao_NomeCompleto" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="tituloCampo" id="lNumeroDoCartao">Número do Cartão</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" class="inputFormulario" id="tNumeroDoCartao" name="cartao_Numero" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tituloCampo" id="lValidadeDoCartao">Validade do Cartão</td>
+                                <td class="tituloCampo" id="lCodigoDeSeguranca">Código de Segurança</td>
+                            </tr>
+                            <tr>
+                                <td><input type="month" min="2021-01" class="inputFormulario" id="tValidadeDoCartao" name="cartao_Validade" /></td>
+                                <td><input type="text" placeholder="CVV" maxlength="4" class="inputFormulario" id="tCodigoDeSeguranca"
+                                        name="cartao_CodigoSeguranca" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="tituloCampo " id="lCpfCnpj">CPF/CNPJ</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" maxlength="14" class="inputFormulario" id="tCpfCnpj" name="cpf" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button class="botaoForm" id="bAlterarPagamento">Cadastrar</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="perfilInfo-lateral"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -16,6 +16,10 @@ function chamadaClick(){
     document.getElementById("bSair").onclick = function () {
         fLocalComunicaServidor();
     }
+
+    document.getElementById("bAlterarPagamento").onclick = function () {
+        window.location.href = "alterarPagamento/";
+    }
 }
 
 function fLocalComunicaServidor() {
