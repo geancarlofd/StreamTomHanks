@@ -4,17 +4,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../../css/dashboard/telaInicial.css">
+    <script src="../../js/bibliotecas/jquery-3.3.1.js"></script>
 
-    <link rel="shortcut icon" href="../img/wilson.png">
+    <script src="../../js/header/header.js"></script>
+    <link rel="stylesheet" href="../../css/header/header.css">
+
+
+    <link rel="stylesheet" href="../../css/header/header.css">
+
+
+    <link rel="shortcut icon" href="../../img/wilson.png">
     <title>Tela Inicial - StreamHanks</title>
 </head>
 <body>
     <div class="header">
-        <h1>StreamHanks</h1>
-        <h2>Olá, :)</h2>
-        <a href="../../php/login/logout.php"><button class="btnSair">Sair</button></a>
-        <a href="../../pages/myAccount/"><button class="btnSair">myAccount</button></a>
+        <div class="header-boxs"><p class="titulo" id="pTitulo">StreamHanks</p></div>
+        <div class="header-boxs"><p class="opcoes-header">Filmes</p>
+                                 <p class="opcoes-header">Minha Lista</p></div>
+        <div class="header-boxs"><input id="iptBuscar" class="input-buscar" type="text" placeholder="Run Forest Run...">
+                                 <button id="btnBuscar" class="btn-buscar" >Buscar</button></div>
+        <div class="header-boxs"><img src="../../img/imgPerfil/perfilPic1.jpg" class="icon-header" id="iconHeader" align="right"></a></div>
     </div>
 
     <div class="filmes">

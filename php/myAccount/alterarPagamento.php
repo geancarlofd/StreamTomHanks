@@ -1,9 +1,13 @@
-<?php 
+<?php
+    session_start();
+
     require "../config.php";
 
     $retorno["status"] = "n";
 	$retorno["mensagem"] = "Nao foi possível alterar os dados";
 	$retorno["funcao"] = "alterarPagamento";
+
+    $id_usuario = $_SESSION["id_usuario"];
 
     $cartao_NomeCompleto = $_POST["cartao_NomeCompleto"];
     $cartao_Numero = $_POST["cartao_Numero"];
@@ -13,7 +17,7 @@
 
     $result = mysqli_query($conexao, "UPDATE usuario SET Cartao_NomeCompleto = '$cartao_NomeCompleto',
                             Cartao_Numero = '$cartao_Numero', Cartao_Validade = '$cartao_Validade',
-                            Cartao_CodigoSeguranca = '$cartao_CodigoSeguranca', Cpf = '$cpf' WHERE id = 25");
+                            Cartao_CodigoSeguranca = '$cartao_CodigoSeguranca', Cpf = '$cpf' WHERE '{$id_usuario}'");
 
     if($result == true){
         $retorno["status"] = "s";

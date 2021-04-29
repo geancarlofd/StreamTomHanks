@@ -2,6 +2,15 @@
 .body{
     margin: 0;
     background-color: #111111;
+    overflow: hidden;
+    background-image:url('../img/fundo/andando.gif');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100% 100% 100%;
+   /* background-position: 37%;*/
+
 }
 
 .cabecalho{
@@ -106,6 +115,9 @@
 }
 
 @media (max-width: 720px) {
+    .body {
+        background-position: 37%;
+    }
     .cabecalho{font-size: 2.3rem;}
     .card{margin-top: 60px; width: 350px; height: 325px;}
     .texto-entrar{font-size: 1.7rem;}

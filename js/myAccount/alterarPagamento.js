@@ -68,6 +68,14 @@ function verificador(idCampo, idTexto) { /*Funcao que verifica se os campos esta
     }
 }
 
+function limparCampos() {/*Funcao que limpa os campos/inputs*/
+    document.getElementById("tNomeCompletoCartao").value = '';
+    document.getElementById("tNumeroDoCartao").value = '';
+    document.getElementById("tValidadeDoCartao").value = '';
+    document.getElementById("tCodigoDeSeguranca").value = '';
+    document.getElementById("tCpfCnpj").value = '';
+}
+
 function fLocalComunicaServidor(formulario, arquivo) {
 
     var dados = $("#" + formulario).serialize();
@@ -82,11 +90,14 @@ function fLocalComunicaServidor(formulario, arquivo) {
 
             if (retorno.funcao == "alterarPagamento") {
                 if (retorno.status == "s") {
-                    console.log("cadastrou")
+                    limparCampos();
                     alert(retorno.mensagem);
+                    window.location.href = "../";
                 }
                 else {
                     alert(retorno.mensagem);
+                    limparCampos();
+                    campos();
                 }
             }
         }

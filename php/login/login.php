@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     require "../config.php";
 
     $retorno["status"] = "n";
@@ -15,7 +16,15 @@
     $row = mysqli_num_rows($result);//armazenando rows
 
     if($row >= 1){
-        $_SESSION['usuario'] = $login;
+        $registro = mysqli_fetch_assoc($result);
+
+        $_SESSION['usuario'] = $registro["Email"];
+        $_SESSION['id_usuario'] = $registro["id"];
+        $_SESSION['nome_usuario'] = $registro["NomeCompleto"];
+        $_SESSION["inicio"] = time();
+        $_SESSION["tempolimite"] = 120;
+
+        $_SESSION["id"] = session_id();
 
         $retorno["status"] = "s";
 		$retorno["mensagem"] = "usuario cadastrado";
@@ -23,6 +32,7 @@
     else{
         $_SESSION['nao_autenticado'] = true;
     }
+
         
     mysqli_close($conexao);
 

@@ -1,0 +1,97 @@
+body{
+    margin:0;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: #0f0f0f;
+
+}
+
+.header-boxs{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.titulo{
+    margin-top: 13px;
+    margin-left: 30px;
+    font-size: 50px;
+    color: #e6e6e6;
+    font-family: 'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;
+
+}
+
+.titulo:hover{
+    cursor: pointer;
+}
+
+.opcoes-header{
+    margin-top: 32px;
+    margin-right: 60px;
+    font-size: 26px;
+    color: #e6e6e6;
+    opacity: 50%;
+    font-family: 'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+    float:left;
+}
+
+.opcoes-header:hover{
+    cursor: pointer;
+    opacity: 100%;
+}
+
+.input-buscar{
+    width:70%;
+    height: 40%;
+    margin-top:27px;
+    border-radius:5px;
+    padding-left:10px;
+    margin-right:10px;
+    float:left;
+    opacity:80%;
+    
+}
+
+.input-buscar:hover{
+    cursor: pointer;
+    opacity: 100%;
+
+    
+
+}
+
+.btn-buscar{
+    width:20%;
+    height: 40%;
+    background: #ff9100;
+    color:#e6e6e6;
+    margin-top:27px;
+    border-radius:5px;
+    float:left;
+    opacity: 80%;
+}
+
+.btn-buscar:hover{
+    opacity: 100%;
+}
+
+.icon-header{
+    width:75px;
+    height:75px;
+    margin-top:12px;
+    margin-right:65px;
+    border-radius:50%;
+    opacity: 80%;
+}
+
+.icon-header:hover {
+    opacity: 100%;
+    cursor:pointer;
+}
