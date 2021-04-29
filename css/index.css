@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: #111111;
     overflow: hidden;
     background-image:url('../img/fundo/banco.jpg');
     background-repeat: no-repeat;
