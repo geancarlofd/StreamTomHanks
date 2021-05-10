@@ -1,136 +1,339 @@
+var arrayBanco = [];
 
 window.onload= function(){
-    fLocalComunicaServidor();
-}
+    inicia();
 
-function fLocalComunicaServidor() {
+   /* document.getElementById('botao').onclick = function() {
+        document.querySelector('.bg-modal').style.display = 'flex';
+    };*/
 
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "../../php/dashboard/dashboard.php",
-        success: function (retorno) {
-            if (retorno.funcao == "card") {
-                    var result ='';
-                    result += '<div class="close"> + </div>'
-                    result += '<div class="trailer">'
-                    result += '<iframe width="100%" height="300" src="'+retorno.trailer+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-                    result += '</div>'
+    document.getElementById("pTitulo").onclick = function () {
+        window.location.href = "/StreamTomHanks/StreamTomHanks/pages/dashboard/"
+    }
+    document.getElementById("iconHeader").onclick = function () {
+        window.location.href = "/StreamTomHanks/StreamTomHanks/pages/myAccount/"
+    }
 
-                    result += '<div class="enredo" id="enredo">'
-                    result += '<b class="enredo-titulo">' + retorno.titulo+ '</b>'
-                    result += '<br> <hr> <br>'
-                    result += 'Mesmo com o raciocínio lento, Forrest Gump nunca se sentiu desfavorecido. Graças ao apoio da mãe, ele teve uma vida normal. Seja no campo de futebol como um astro do esporte, lutando no Vietnã ou como capitão de um barco de pesca de camarão, Forrest inspira a todos com seu otimismo. Mas a pessoa que Forrest mais ama pode ser a mais difícil de salvar: seu amor de infância, a doce e perturbada Jenny.'
-                    result += '</div>'
-
-                    result += '<div class="ficha-tecnica">'
-                    result += '<font color="white"><i>Gênero: </i></font> Comédia dramática<br>'
-                    result += '<font color="white">Direção:</font> Robert Zemeckis <br>'
-                    result += '<font color="white"><i>Produção: </i></font> Wendy Finerman, Steve Tisch, Steve Starkey <br>'
-                    result += '<font color="white"><i> Roteiro: </i></font>  Eric Roth<br>'
-                    result += '<font color="white"><i>Baseado em: </i></font> Forrest Gump, de Winston Groom<br>'
-                    result += '<font color="white"><i>Música: </i></font>  Alan Silvestri<br>'
-                    result += '<font color="white"><i>Cinematografia:</i></font> Don Burgess<br>'
-                    result += '<font color="white"><i>Edição: </i></font>  Arthur Schmidt <br>'
-                    result += '<font color="white"><i>Companhia(s) produtora(s): </i></font>  The Tisch Company <br>'
-                    result += '<font color="white"><i>Distribuição:</i</font>>Paramount Pictures <br>'
-                    result += '</div>'
-
-                    document.getElementById("cardPop").innerHTML = result;
-            }
-        }
-
-    });
+    document.querySelector('.close').onclick = function() {
+        document.querySelector('.bg-modal').style.display = 'none';
+    };
 
 }
 
-const fila = document.querySelector('.conteudo-carrossel');
-const imagens = document.querySelectorAll('.imagens');
+function inicia(){
+    fLocalComunicaServidor("sessao/valida_sessao");
+    fLocalComunicaServidor("dashboard/dashboard");
+}
 
-const flechaEsquerda = document.getElementById('flecha-esquerda');
-const flechaDireita = document.getElementById('flecha-direita');
+/*CARROSSEL 0*/
+const fila0 = document.getElementById('conteudoCarrossel0');
+const imagens0 = document.querySelectorAll('#imagens0');
 
+const flechaEsquerda0 = document.getElementById('flecha-esquerda0');
+const flechaDireita0 = document.getElementById('flecha-direita0');
+
+/*CARROSSEL 1*/
+const fila1 = document.getElementById('conteudoCarrossel1');
+const imagens1 = document.querySelectorAll('#imagens1');
+
+const flechaEsquerda1 = document.getElementById('flecha-esquerda1');
+const flechaDireita1 = document.getElementById('flecha-direita1');
+
+/*CARROSSEL2*/
+const fila2 = document.getElementById('conteudoCarrossel2');
+const imagens2 = document.querySelectorAll('#imagens2');
+
+const flechaEsquerda2 = document.getElementById('flecha-esquerda2');
+const flechaDireita2 = document.getElementById('flecha-direita2');
+
+/*CARROSSEL 3*/
+const fila3 = document.getElementById('conteudoCarrossel3');
+const imagens3 = document.querySelectorAll('#imagens3');
+
+const flechaEsquerda3 = document.getElementById('flecha-esquerda3');
+const flechaDireita3 = document.getElementById('flecha-direita3');
+
+/*CARROSSEL 0*/
 /* Rolagem - Flecha direita */
-flechaDireita.addEventListener('click', () => {
-    fila.scrollLeft += fila.offsetWidth;
+flechaDireita0.addEventListener('click', () => {
+    fila0.scrollLeft += fila0.offsetWidth;
 
-    const indicadorAtivo = document.querySelector('.conteudo .ativo');
-    if(indicadorAtivo.nextSibling){
-        indicadorAtivo.nextSibling.classList.add('ativo');
-        indicadorAtivo.classList.remove('ativo');
+    const indicadorAtivo0 = document.querySelector('#conteudo0 .ativo');
+    if(indicadorAtivo0.nextSibling){
+        indicadorAtivo0.nextSibling.classList.add('ativo');
+        indicadorAtivo0.classList.remove('ativo');
     }
 });
 
-//Select * from. Volta um objeto. Cria o card dentro (js).  
-// Cria um document.ready chama ajax e php -> para assim o conteúdo do mysql vir. Fazer igual ele fez na aula de hoje 22/04 (onclick).
+/*CARROSSEL 1*/
+/* Rolagem - Flecha direita */
+flechaDireita1.addEventListener('click', () => {
+    fila1.scrollLeft += fila1.offsetWidth;
 
+    const indicadorAtivo1 = document.querySelector('#conteudo1 .ativo');
+    if (indicadorAtivo1.nextSibling) {
+        indicadorAtivo1.nextSibling.classList.add('ativo');
+        indicadorAtivo1.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 2*/
+/* Rolagem - Flecha direita */
+flechaDireita2.addEventListener('click', () => {
+    fila2.scrollLeft += fila2.offsetWidth;
+
+    const indicadorAtivo2 = document.querySelector('#conteudo2 .ativo');
+    if (indicadorAtivo2.nextSibling) {
+        indicadorAtivo2.nextSibling.classList.add('ativo');
+        indicadorAtivo2.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 3*/
+/* Rolagem - Flecha direita */
+flechaDireita3.addEventListener('click', () => {
+    fila3.scrollLeft += fila3.offsetWidth;
+
+    const indicadorAtivo3 = document.querySelector('#conteudo3 .ativo');
+    if (indicadorAtivo3.nextSibling) {
+        indicadorAtivo3.nextSibling.classList.add('ativo');
+        indicadorAtivo3.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 0*/
 /* Rolagem - Flecha esquerda */
-flechaEsquerda.addEventListener('click', () => {
-    fila.scrollLeft -= fila.offsetWidth;
+flechaEsquerda0.addEventListener('click', () => {
+    fila0.scrollLeft -= fila0.offsetWidth;
 
-    const indicadorAtivo = document.querySelector('.conteudo .ativo');
-    if(indicadorAtivo.previousSibling){
-        indicadorAtivo.previousSibling.classList.add('ativo');
-        indicadorAtivo.classList.remove('ativo');
+    const indicadorAtivo0 = document.querySelector('#conteudo0 .ativo');
+    if (indicadorAtivo0.previousSibling) {
+        indicadorAtivo0.previousSibling.classList.add('ativo');
+        indicadorAtivo0.classList.remove('ativo');
     }
 });
 
+/*CARROSSEL 1*/
+/* Rolagem - Flecha esquerda */
+flechaEsquerda1.addEventListener('click', () => {
+    fila1.scrollLeft -= fila1.offsetWidth;
+
+    const indicadorAtivo1 = document.querySelector('#conteudo1 .ativo');
+    if(indicadorAtivo1.previousSibling){
+        indicadorAtivo1.previousSibling.classList.add('ativo');
+        indicadorAtivo1.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 2*/
+/* Rolagem - Flecha esquerda */
+flechaEsquerda2.addEventListener('click', () => {
+    fila2.scrollLeft -= fila2.offsetWidth;
+
+    const indicadorAtivo2 = document.querySelector('#conteudo2 .ativo');
+    if (indicadorAtivo2.previousSibling) {
+        indicadorAtivo2.previousSibling.classList.add('ativo');
+        indicadorAtivo2.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 3*/
+/* Rolagem - Flecha esquerda */
+flechaEsquerda3.addEventListener('click', () => {
+    fila3.scrollLeft -= fila3.offsetWidth;
+
+    const indicadorAtivo3 = document.querySelector('#conteudo3 .ativo');
+    if (indicadorAtivo3.previousSibling) {
+        indicadorAtivo3.previousSibling.classList.add('ativo');
+        indicadorAtivo3.classList.remove('ativo');
+    }
+});
+
+/*CARROSSEL 0*/
 /* Paginação */
-const numeroPaginas = Math.ceil(imagens.length / 5);
-for(let i  = 0; i < numeroPaginas; i++){
-    const indicador = document.createElement('button');
+const numeroPaginas0 = Math.ceil(imagens0.length / 5);
+for(let i = 0; i < numeroPaginas0; i++){
+    const indicador0 = document.createElement('button');
 
     if(i === 0){
-        indicador.classList.add('ativo');
+        indicador0.classList.add('ativo');
     }
 
-    document.querySelector('.conteudo').appendChild(indicador);
-    indicador.addEventListener('click', (e) => {
-        fila.scrollLeft = i * fila.offsetWidth;
-        document.querySelector('.conteudo .ativo').classList.remove('ativo');
-        e.target.classList.add('ativo');
+    document.querySelector('#conteudo0').appendChild(indicador0);
+    indicador0.addEventListener('click', (e0) => {
+        fila0.scrollLeft = i * fila0.offsetWidth;
+        document.querySelector('#conteudo0 .ativo').classList.remove('ativo');
+        e0.target.classList.add('ativo');
     });
 }
 
+/*CARROSSEL 1*/
+/* Paginação */
+const numeroPaginas1 = Math.ceil(imagens1.length / 5);
+for (let i = 0; i < numeroPaginas1; i++) {
+    const indicador1 = document.createElement('button');
+
+    if (i === 0) {
+        indicador1.classList.add('ativo');
+    }
+
+    document.querySelector('#conteudo1').appendChild(indicador1);
+    indicador1.addEventListener('click', (e1) => {
+        fila1.scrollLeft = i * fila1.offsetWidth;
+        document.querySelector('#conteudo1 .ativo').classList.remove('ativo');
+        e1.target.classList.add('ativo');
+    });
+}
+
+/*CARROSSEL 2*/
+/* Paginação */
+const numeroPaginas2 = Math.ceil(imagens2.length / 5);
+for (let i = 0; i < numeroPaginas2; i++) {
+    const indicador2 = document.createElement('button');
+
+    if (i === 0) {
+        indicador2.classList.add('ativo');
+    }
+
+    document.querySelector('#conteudo2').appendChild(indicador2);
+    indicador2.addEventListener('click', (e2) => {
+        fila2.scrollLeft = i * fila2.offsetWidth;
+        document.querySelector('#conteudo2 .ativo').classList.remove('ativo');
+        e2.target.classList.add('ativo');
+    });
+}
+
+/*CARROSSEL 3*/
+/* Paginação */
+const numeroPaginas3 = Math.ceil(imagens3.length / 5);
+for (let i = 0; i < numeroPaginas3; i++) {
+    const indicador3 = document.createElement('button');
+
+    if (i === 0) {
+        indicador3.classList.add('ativo');
+    }
+
+    document.querySelector('#conteudo3').appendChild(indicador3);
+    indicador3.addEventListener('click', (e3) => {
+        fila3.scrollLeft = i * fila3.offsetWidth;
+        document.querySelector('#conteudo3 .ativo').classList.remove('ativo');
+        e3.target.classList.add('ativo');
+    });
+}
+
+
+
+/*CARROSSEL 0*/
 /* Hover */
-imagens.forEach((imagem) => {
-    imagem.addEventListener('mouseenter', (e) => {
-        const elemento  = e.currentTarget;
+imagens0.forEach((imagem0) => {
+    imagem0.addEventListener('mouseenter', (e0) => {
+        const elemento  = e0.currentTarget;
         setTimeout(() => {
-            imagens.forEach(imagens  => imagens.classList.remove('hover'));
+            imagens0.forEach(imagens0  => imagens0.classList.remove('hover'));
             elemento.classList.add('hover');
         }, 300);
 
-        cardAberto();
+        /*cardAberto();*/
 
     });
 });
 
+/*CARROSSEL 1*/
+/* Hover */
+imagens1.forEach((imagem1) => {
+    imagem1.addEventListener('mouseenter', (e1) => {
+        const elemento1 = e1.currentTarget;
+        setTimeout(() => {
+            imagens1.forEach(imagens1 => imagens1.classList.remove('hover'));
+            elemento1.classList.add('hover');
+        }, 300);
+
+        /*cardAberto();*/
+
+    });
+});
+
+/*CARROSSEL 2*/
+/* Hover */
+imagens2.forEach((imagem2) => {
+    imagem2.addEventListener('mouseenter', (e2) => {
+        const elemento2 = e2.currentTarget;
+        setTimeout(() => {
+            imagens2.forEach(imagens2 => imagens2.classList.remove('hover'));
+            elemento2.classList.add('hover');
+        }, 300);
+
+        /*cardAberto();*/
+
+    });
+});
+
+/*CARROSSEL 3*/
+/* Hover */
+imagens3.forEach((imagem3) => {
+    imagem3.addEventListener('mouseenter', (e3) => {
+        const elemento3 = e3.currentTarget;
+        setTimeout(() => {
+            imagens3.forEach(imagens3 => imagens3.classList.remove('hover'));
+            elemento3.classList.add('hover');
+        }, 300);
+
+        /*cardAberto();*/
+
+    });
+});
+
+fila0.addEventListener('mouseleave', () => {
+    imagens0.forEach(imagens0 => imagens0.classList.remove('hover'));
+    /*cardFechado();*/
+});
+
+fila1.addEventListener('mouseleave', () => {
+    imagens1.forEach(imagens1 => imagens1.classList.remove('hover'));
+    /*cardFechado();*/
+});
+
+fila2.addEventListener('mouseleave', () => {
+    imagens2.forEach(imagens2 => imagens2.classList.remove('hover'));
+    /*cardFechado();*/
+});
+
+fila3.addEventListener('mouseleave', () => {
+    imagens3.forEach(imagens3 => imagens3.classList.remove('hover'));
+    /*cardFechado();*/
+});
+
+/*
 function cardAberto() {
     const espaco = document.getElementById("espaco");
     espaco.style.display = "block";
-}
-
-fila.addEventListener('mouseleave', () => {
-    imagens.forEach(imagens  => imagens.classList.remove('hover'));
-    cardFechado();
-}); 
-
-
+}*/
+/*
 function cardFechado(){
     const espaco = document.getElementById("espaco");
     espaco.style.display = "none";
 }
+*/
+function fLocalComunicaServidor(arquivo) {
 
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../php/"+arquivo+".php",
+        success: function (retorno) {
+            if (retorno.funcao == "conteudo") {
+                console.log(retorno.i0.titulo);
+                document.getElementById('conteudoTitulo').innerText = retorno.i0.titulo;
+            }
+            if (retorno.funcao == "valida-sessao") {
+                if (retorno.status == "n") {
+                    window.location.href = "/StreamTomHanks/StreamTomHanks/pages/login/";
+                }
+                else {
+                    fLocalComunicaServidor()
+                }
+            }
+        }
+    });
 
-
-
-/* Modal Pop-up para botão */
-
-document.getElementById('botao').addEventListener('click', function() {
-    document.querySelector('.bg-modal').style.display = 'flex';
-});
-
-document.querySelector('.close').addEventListener('click', function(){
-    document.querySelector('.bg-modal').style.display = 'none';
-});
+}

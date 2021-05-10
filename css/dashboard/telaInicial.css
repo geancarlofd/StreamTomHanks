@@ -253,6 +253,10 @@ body{
     margin-bottom: 10px;
 }
 
+h{
+    width:100%;
+}
+
 @keyframes modal {
     from{
         opacity: 0;
@@ -290,7 +294,7 @@ body{
 
     .modal-content {
         width:70%;
-        height:100%;
+        height:80%;
     }
     .ficha-tecnica{
         width:100%;
