@@ -159,9 +159,9 @@ body{
 }
 
 .bol{
-    margin: 15px;
+    align-items: center;
     float: left;
-    width: 40px;
+    width: 40px[];
     height: 40px;
     text-align: center;
     opacity: 75%;
@@ -170,7 +170,6 @@ body{
 }
 
 .bola {
-    margin: 15px;
     float: left;
     width: 40px;
     height: 40px;
