@@ -3,11 +3,6 @@ var arrayBanco = [];
 window.onload= function(){
     inicia();
 
-    $(".btn-info").click(function () {
-        document.querySelector('.bg-modal').style.display = 'flex';
-        return false;
-    });
-
     document.getElementById("pTitulo").onclick = function () {
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/dashboard/";
         return false;
@@ -17,16 +12,48 @@ window.onload= function(){
         return false;
     }
 
-    document.querySelector('.close').onclick = function() {
-        document.querySelector('.bg-modal').style.display = 'none';
-        return false;
-    };
-
 }
 
 function inicia(){
     fLocalComunicaServidor("sessao/valida_sessao");
     fLocalComunicaServidor("dashboard/dashboard");
+}
+
+function conteudoModal(id_filme){
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../php/dashboard/ficha_tecnica.php",
+        data: {id:id_filme},
+        success: function (retorno) {
+
+            if (retorno.funcao == "conteudo_ficha_tecnica") {
+                if (retorno.status == "s") {
+
+                    document.getElementById("conteudoTitulo").innerText = retorno.filme.titulo;
+                    document.getElementById("conteudoAno").innerText = retorno.filme.ano;
+                    document.getElementById("conteudoGenero").innerText = retorno.filme.genero;
+                }
+                else {
+                    //ERRO MODAL
+                }
+            }
+        }
+    });
+}
+
+function addMinhaLista(id_filme) {
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../php/dashboard/minha_lista.php",
+        data: { id: id_filme },
+        success: function (retorno) {
+
+        }
+    });
 }
 
 function carrossel(){
@@ -301,29 +328,216 @@ function fLocalComunicaServidor(arquivo) {
         url: "../../php/"+arquivo+".php",
         success: function (retorno) {
             if (retorno.funcao == "conteudo") {
+                
                 var cards = '';
-                /*
+                
                 for(var i = 0; i < 8; i++){
-                    cards += '<div class="imagens" id="imagens0" id_filmes="'+retorno[i].id+'"><img id_filmes="'+retorno[i].id+'" class="imgFilmes" src="../../img/posters/pic'+retorno[i].id+'.jpg" width="300"></div>';
+
+                    cards +='<div class="imagens" id="imagens0" id_filmes="' + retorno[i].id + '">';
+                    cards +='<img id_filmes="'+retorno[i].id+'" class="imgFilmes" src="../../img/posters/pic'+retorno[i].id+'.jpg" width="300">';
+                    
+                    cards +='    <div class="espaco" id="espaco">';
+                    cards +='            <div class="bol">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ff9100">';
+                    cards +='                            <path';
+                    cards +='                                d="M113,18.83333c-51.9235,0 -94.16667,42.24317 -94.16667,94.16667c0,51.9235 42.24317,94.16667 94.16667,94.16667c51.9235,0 94.16667,-42.24317 94.16667,-94.16667c0,-51.9235 -42.24317,-94.16667 -94.16667,-94.16667zM94.16667,145.61933v-65.23867l56.5,32.61933z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+                            
+                    cards +='            <div class="bola btn-minha_lista" id_filmes="'+retorno[i].id+'">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="40" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"';
+                    cards +='                        stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"';
+                    cards +='                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none" fill-rule="nonzero"></path>';
+                    cards +='                        <g fill="#ffffff" fill-rule="evenodd">';
+                    cards +='                            <path';
+                    cards +='                                d="M103.58333,18.83333v84.75h-84.75v18.83333h84.75v84.75h18.83333v-84.75h84.75v-18.83333h-84.75v-84.75z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+                            
+                    cards +='            <div class="bola btn-info" id="btn-info" id_filmes="'+retorno[i].id +'">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="41" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ffffff">';
+                    cards +='                            <path d="M28.25,75.33333v37.66667l84.75,56.5l84.75,-56.5v-37.66667l-84.75,56.5z"></path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+                    cards +='        </div>';
+                    
+                    cards +='</div>';
                 }
                 document.getElementById('carrossel0').innerHTML = cards;
-                */
+                
 
                 cards = '';
                 for (var j = 8; j < 15; j++) {
-                    cards += '<div class="imagens" id="imagens1" id_filmes="'+retorno[j].id +'"><img id_filmes="'+retorno[j].id+'" class="imgFilmes" src="../../img/posters/pic'+retorno[j].id+'.jpg" width="300"></div>';
-                }
-                document.getElementById('carrossel1').innerHTML = cards;
+                    cards += '<div class="imagens" id="imagens1" id_filmes="'+retorno[j].id +'"><img id_filmes="'+retorno[j].id+'" class="imgFilmes" src="../../img/posters/pic'+retorno[j].id+'.jpg" width="300">';
+                    
+                    cards +='    <div class="espaco" id="espaco">';
+                    cards +='            <div class="bol">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ff9100">';
+                    cards +='                            <path';
+                    cards +='                                d="M113,18.83333c-51.9235,0 -94.16667,42.24317 -94.16667,94.16667c0,51.9235 42.24317,94.16667 94.16667,94.16667c51.9235,0 94.16667,-42.24317 94.16667,-94.16667c0,-51.9235 -42.24317,-94.16667 -94.16667,-94.16667zM94.16667,145.61933v-65.23867l56.5,32.61933z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
 
-                cards = '';
-                for (var k = 15; k < 18; k++) {
-                    cards += '<div class="imagens" id="imagens2" id_filmes="'+retorno[k].id+'"><img id_filmes="'+retorno[k].id+'"class="imgFilmes" src="../../img/posters/pic'+retorno[k].id+'.jpg" width="300"></div>';
+                    cards +='            <div class="bola btn-minha_lista" id_filmes="' + retorno[j].id + '">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="40" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"';
+                    cards +='                        stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"';
+                    cards +='                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none" fill-rule="nonzero"></path>';
+                    cards +='                        <g fill="#ffffff" fill-rule="evenodd">';
+                    cards +='                            <path';
+                    cards +='                                d="M103.58333,18.83333v84.75h-84.75v18.83333h84.75v84.75h18.83333v-84.75h84.75v-18.83333h-84.75v-84.75z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+
+                    cards +='            <div class="bola btn-info" id="btn-info" id_filmes="' + retorno[j].id + '">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="41" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ffffff">';
+                    cards +='                            <path d="M28.25,75.33333v37.66667l84.75,56.5l84.75,-56.5v-37.66667l-84.75,56.5z"></path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+                    cards +='        </div>';
+                    
+                    cards +='</div>';
                 }
-                cards += '<div class="imagens" id="imagens2"><img class="imgFilmes" src="../../img/posters/vazio.png"  width="300"></div>';
-                cards += '<div class="imagens" id="imagens2"><img class="imgFilmes" src="../../img/posters/vazio.png"  width="300"></div>';
+                document.getElementById('carrossel1').innerHTML =cards;
+                
+                cards ='';
+                for (var k =15; k < 18; k++) {
+                    cards +='<div class="imagens" id="imagens2" id_filmes="'+retorno[k].id+'">';
+                    
+                    cards +='<img id_filmes="'+retorno[k].id+'"class="imgFilmes" src="../../img/posters/pic'+retorno[k].id+'.jpg" width="300">';
+                    
+                    cards +='    <div class="espaco" id="espaco">';
+                    cards +='            <div class="bol">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ff9100">';
+                    cards +='                            <path';
+                    cards +='                                d="M113,18.83333c-51.9235,0 -94.16667,42.24317 -94.16667,94.16667c0,51.9235 42.24317,94.16667 94.16667,94.16667c51.9235,0 94.16667,-42.24317 94.16667,-94.16667c0,-51.9235 -42.24317,-94.16667 -94.16667,-94.16667zM94.16667,145.61933v-65.23867l56.5,32.61933z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+
+                    cards +='            <div class="bola btn-minha_lista" id_filmes="'+retorno[k].id+'">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="40" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"';
+                    cards +='                        stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"';
+                    cards +='                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none" fill-rule="nonzero"></path>';
+                    cards +='                        <g fill="#ffffff" fill-rule="evenodd">';
+                    cards +='                            <path';
+                    cards +='                                d="M103.58333,18.83333v84.75h-84.75v18.83333h84.75v84.75h18.83333v-84.75h84.75v-18.83333h-84.75v-84.75z">';
+                    cards +='                            </path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+
+                    cards +='            <div class="bola btn-info" id="btn-info" id_filmes="'+retorno[k].id +'">';
+                    cards +='                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="41" viewBox="0 0 226 226"';
+                    cards +='                    style=" fill:#000000;">';
+                    cards +='                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"';
+                    cards +='                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"';
+                    cards +='                        font-family="none" font-weight="none" font-size="none" text-anchor="none"';
+                    cards +='                        style="mix-blend-mode: normal">';
+                    cards +='                        <path d="M0,226v-226h226v226z" fill="none"></path>';
+                    cards +='                        <g fill="#ffffff">';
+                    cards +='                            <path d="M28.25,75.33333v37.66667l84.75,56.5l84.75,-56.5v-37.66667l-84.75,56.5z"></path>';
+                    cards +='                        </g>';
+                    cards +='                    </g>';
+                    cards +='                </svg>';
+                    cards +='            </div>';
+                    cards +='        </div>';
+                    
+                    cards +='</div>';
+                }
+                cards +='<div class="imagens" id="imagens2"><img class="imgFilmes" src="../../img/posters/vazio.png"  width="300"></div>';
+                cards +='<div class="imagens" id="imagens2"><img class="imgFilmes" src="../../img/posters/vazio.png"  width="300"></div>';
                 document.getElementById('carrossel2').innerHTML = cards;
+                
+
 
                 carrossel();
+
+                $(".btn-info").click(function () {
+                    var id_filme = $(this).attr("id_filmes");
+                    console.log(id_filme);
+                    conteudoModal(id_filme);
+                    document.querySelector('.bg-modal').style.display = 'flex';
+                    return false;
+                });
+
+                $(".btn-minha_lista").click(function () {
+                    var id_filme = $(this).attr("id_filmes");
+                    console.log(id_filme);
+                    addMinhaLista(id_filme);
+                    return false;
+                });
+
+                document.querySelector('.close').onclick = function () {
+                    document.getElementById("conteudoTitulo").innerText = "";
+                    document.getElementById("conteudoAno").innerText = "";
+                    document.getElementById("conteudoGenero").innerText = "";
+                    
+                    document.querySelector('.bg-modal').style.display = 'none';
+                    return false;
+                };
 
             }
             if (retorno.funcao == "valida-sessao") {

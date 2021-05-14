@@ -158,10 +158,12 @@ body{
 
 }
 
-.bol{
-    align-items: center;
+.bol {
+    margin: 15px;
+    margin-top:2px;
+    margin-bottom:2px;
     float: left;
-    width: 40px[];
+    width: 40px;
     height: 40px;
     text-align: center;
     opacity: 75%;
@@ -170,20 +172,24 @@ body{
 }
 
 .bola {
+    margin: 15px;
+    margin-top:2px;
+    margin-bottom:2px;
     float: left;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.3);
-    border: 1px solid #cec8c8;  
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #cec8c8;
     text-align: center;
     opacity: 75%;
     cursor: pointer;
 }
 
-.bola:hover{
+.bola:hover {
     background: rgba(0, 0, 0, .9);
 }
+
 
 .bg-modal {
     width: 100%;
