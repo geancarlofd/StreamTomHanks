@@ -18,7 +18,7 @@
     <div class="header">
         <div class="header-boxs"><p class="titulo" id="pTitulo">StreamHanks</p></div>
         <div class="header-boxs"><p class="opcoes-header">Filmes</p>
-                                 <p class="opcoes-header">Minha Lista</p></div>
+                                 <p class="opcoes-header" id="pMinhaLista">Minha Lista</p></div>
         <div class="header-boxs"><input id="iptBuscar" class="input-buscar" type="text" placeholder="Run Forest Run...">
                                  <button id="btnBuscar" class="btn-buscar" >Buscar</button></div>
         <div class="header-boxs"><img src="../../img/imgPerfil/perfilPic1.jpg" class="icon-header" id="iconHeader" align="right"></a></div>
@@ -26,7 +26,8 @@
     <div class="bg-modal" id='bg-modal'>
         <div class="modal-content">
             <div class="close"> + </div>
-                <div class="trailer">
+                <div class="trailer" id="conteudoTrailer">
+                    
                     <iframe width="100%" height="300" src="" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -39,19 +40,15 @@
 
                 <hr>
                 <font color="white"></font>
-                <conteudo id="conteudoSinopse">
-                    Mesmo com o raciocínio lento, Forrest Gump nunca se sentiu desfavorecido. Graças ao apoio da mãe, ele
-                    teve uma vida normal. Seja no campo de futebol como um astro do esporte, lutando no Vietnã ou como capitão de um
-                    barco de pesca de camarão, Forrest inspira a todos com seu otimismo. Mas a pessoa que Forrest mais ama pode ser
-                    a mais difícil de salvar: seu amor de infância, a doce e perturbada Jenny.
-                </conteudo>
+                <conteudo id="conteudoSinopse"></conteudo>
                 </font>
             </div>
 
             <div class="ficha-tecnica">
                 <font color="white"><i>Ano: </i></font><conteudo id="conteudoAno"></conteudo><br>
+                <font color="white"><i>Duração: </i></font><conteudo id="conteudoDuracao"></conteudo><br>
                 <font color="white"><i>Gênero: </i></font><conteudo id="conteudoGenero"></conteudo><br>
-                <font color="white">Direção:</font><conteudo id="conteudoDirecao"></conteudo><br>
+                <font color="white">Direção:</font><conteudo id="conteudoDiretor"></conteudo><br>
                 <font color="white"><i>Produção: </i></font><conteudo id="conteudoProducao"></conteudo><br>
                 <font color="white"><i> Roteiro: </i></font> <conteudo id="conteudoRoteiro"></conteudo><br>
                 <font color="white"><i>Edição: </i></font><conteudo id="conteudoEdicao"></conteudo><br>
@@ -60,12 +57,9 @@
         </div>
     </div>
 
-
     <!--Menu Superior-->
-    <div class="cabecalho">
-        
-    </div>
-  
+    <div class="cabecalho"></div>
+    <div class="hero-image"></div>
     <!--Card Carrossel-->
     <div class="filmes-recomendados recipiente">
         <div class="recipiente-titulo-conteudo">
@@ -86,6 +80,7 @@
 
             <div class="conteudo-carrossel" id="conteudoCarrossel0">
                 <div class="carrossel" id="carrossel0">
+                    
                     <!--
                     <div class="imagens" id="imagens0">
                         <img class="imgFilmes" src="../../img/posters/pic1.jpg" width="300">
@@ -411,7 +406,7 @@
     <!--Card Carrossel 3-->
     <div class="filmes-recomendados recipiente">
         <div class="recipiente-titulo-conteudo">
-            <h3>AINDA N SEI</h3>
+            <h3>Minha Lista</h3>
             <div class="conteudo" id="conteudo3"></div>
         </div>
     
@@ -432,20 +427,7 @@
                 </svg></button>
     
             <div class="conteudo-carrossel" id="conteudoCarrossel3">
-                <div class="carrossel" id="carrossel3">
-    
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                    <div class="imagens" id="imagens3"><img class="imgFilmes" src="../../img/posters/vazio.png" width="300"></div>
-                </div>
+                <div class="carrossel" id="carrossel3"></div>
             </div>
     
             <button role="button" id="flecha-direita3" class="flecha-direita"><svg xmlns="http://www.w3.org/2000/svg"

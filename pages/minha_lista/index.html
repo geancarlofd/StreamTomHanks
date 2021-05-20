@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../../js/bibliotecas/jquery-3.3.1.js"></script>
+
+    <link rel="stylesheet" href="../../css/header/header.css">
+    <link rel="stylesheet" href="../../css/minha_lista/minha_lista.css">
+
+    <link rel="shortcut icon" href="../../img/wilson.png">
+
+    <link rel="stylesheet" href="../../css/dashboard/telaInicial.css">
+    <a href="https://icons8.com/icon/BIG1G9R0zfdm/menor-que"></a>
+    <title>Tela Inicial - StreamHanks</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-boxs">
+            <p class="titulo" id="pTitulo">StreamHanks</p>
+        </div>
+        <div class="header-boxs">
+            <p class="opcoes-header">Filmes</p>
+            <p class="opcoes-header" id="pMinhaLista">Minha Lista</p>
+        </div>
+        <div class="header-boxs"><input id="iptBuscar" class="input-buscar" type="text" placeholder="Run Forest Run...">
+            <button id="btnBuscar" class="btn-buscar">Buscar</button>
+        </div>
+        <div class="header-boxs"><img src="../../img/imgPerfil/perfilPic1.jpg" class="icon-header" id="iconHeader"
+                align="right"></a></div>
+
+        <div class="bg-modal" id='bg-modal'>
+            <div class="modal-content">
+                <div class="close"> + </div>
+                <div class="trailer" id="conteudoTrailer">
+
+                    <iframe width="100%" height="300" src="" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div class="enredo" id="enredo">
+                    <b class="enredo-titulo">
+                        <conteudo name="id_filme" id="conteudoTitulo"></conteudo>
+                    </b>
+                    <br>
+
+                    <hr>
+                    <font color="white"></font>
+                    <conteudo id="conteudoSinopse"></conteudo>
+                    </font>
+                </div>
+
+                <div class="ficha-tecnica">
+                    <font color="white"><i>Ano: </i></font>
+                    <conteudo id="conteudoAno"></conteudo><br>
+                    <font color="white"><i>Duração: </i></font>
+                    <conteudo id="conteudoDuracao"></conteudo><br>
+                    <font color="white"><i>Gênero: </i></font>
+                    <conteudo id="conteudoGenero"></conteudo><br>
+                    <font color="white">Direção:</font>
+                    <conteudo id="conteudoDiretor"></conteudo><br>
+                    <font color="white"><i>Produção: </i></font>
+                    <conteudo id="conteudoProducao"></conteudo><br>
+                    <font color="white"><i> Roteiro: </i></font>
+                    <conteudo id="conteudoRoteiro"></conteudo><br>
+                    <font color="white"><i>Edição: </i></font>
+                    <conteudo id="conteudoEdicao"></conteudo><br>
+                    <font color="white"><i>Distribuição:</i> </font>
+                    <conteudo id="conteudoDistribuicao"></conteudo><br>
+                </div>
+            </div>
+        </div>
+
+        <!--Menu Superior-->
+        <div class="cabecalho"></div>
+        <div class="hero-image-2"></div>
+
+            <div class="minhaListaFilmes" id="minhaListaFilmes">
+
+            </div>
+            
+</body>
+<script src="../../js/minha_lista/minha_lista.js"></script>
+</html>

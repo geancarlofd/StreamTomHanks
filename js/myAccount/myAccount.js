@@ -28,6 +28,10 @@ function chamadaClick(){
     document.getElementById("iconHeader").onclick = function () {
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/myAccount/"
     }
+    document.getElementById("pMinhaLista").onclick = function () {
+        window.location.href = "/StreamTomHanks/StreamTomHanks/pages/minha_lista/";
+        return false;
+    }
 }
 
 
