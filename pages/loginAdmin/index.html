@@ -1,0 +1,122 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../../js/bibliotecas/jquery-3.3.1.js"></script>
+
+        <link rel="stylesheet" href="../../css/header/header.css">
+        <link rel="shortcut icon" href="../../img/wilson.png">
+        <link rel="stylesheet" href="../../css/loginAdmin/loginAdmin.css">
+
+        <a href="https://icons8.com/icon/BIG1G9R0zfdm/menor-que"></a>
+        <a href="https://icons8.com/icon/114100/mais"></a>
+
+        <title>Tela Administrador - StreamHanks</title>
+
+        </head>
+
+    <body>
+
+    <!--Barra Nome StreamHanks/Ícone Usuário-->
+    <div class="header">
+    <div class="header-boxs"><p class="titulo">StreamHanks</p></div>
+    <div class="header-boxs"><p class="opcoes-header">Admin</p></div>
+    <div class="header-boxs"><img src="../../img/imgPerfil/hanks2.jpg" class="icon-header" id="iconHeader" align="right"></a></div>
+    </div>
+
+    <!--Modal-->
+    <div class="bg-modal" id='bg-modal'>
+        <div class="modal-content">
+            <div class="close"> + </div>
+                <div class="trailer" id="conteudoTrailer">
+                    
+                    <iframe width="100%" height="300" src="" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+            </div>
+            
+            <div class="enredo" id="enredo">
+                <b class="enredo-titulo"><conteudo name="id_filme" id="conteudoTitulo"></conteudo></b>
+                <br>
+
+                <hr>
+                <font color="white"></font>
+                <conteudo id="conteudoSinopse"></conteudo>
+                </font>
+            </div>
+
+            <div class="ficha-tecnica">
+                <font color="white"><i>Ano: </i></font><conteudo id="conteudoAno"></conteudo><br>
+                <font color="white"><i>Duração: </i></font><conteudo id="conteudoDuracao"></conteudo><br>
+                <font color="white"><i>Gênero: </i></font><conteudo id="conteudoGenero"></conteudo><br>
+                <font color="white">Direção:</font><conteudo id="conteudoDiretor"></conteudo><br>
+                <font color="white"><i>Produção: </i></font><conteudo id="conteudoProducao"></conteudo><br>
+                <font color="white"><i> Roteiro: </i></font> <conteudo id="conteudoRoteiro"></conteudo><br>
+                <font color="white"><i>Edição: </i></font><conteudo id="conteudoEdicao"></conteudo><br>
+                <font color="white"><i>Distribuição:</i> </font><conteudo id="conteudoDistribuicao"></conteudo><br>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Menu Superior Gif-->
+    <div class="hero-image"></div>
+
+    <!--Botão Adicionar filmes-->
+    <div class="filmes-recomendados recipiente">
+        <div class="recipiente-titulo-conteudo">
+            <h3>Adicionar Filmes</h3>
+            <div class="conteudo" id="conteudo0"></div>
+        </div>
+
+        <div class="bolaAdicionar">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="40" viewBox="0 0 226 226"
+                style=" fill:#000000;">
+                <g fill="none" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                    stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,226v-226h226v226z" fill="none" fill-rule="nonzero"></path>
+                    <g fill="#ffffff" fill-rule="evenodd">';
+                        <path
+                            d="M103.58333,18.83333v84.75h-84.75v18.83333h84.75v84.75h18.83333v-84.75h84.75v-18.83333h-84.75v-84.75z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div class="indicador-principal">
+            <button role="button" id="flecha-esquerda0" class="flecha-esquerda"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="50" height="50"
+                viewBox="0 0 226 226"
+                style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" 
+                stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" 
+                text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#ffffff">
+                    <path d="M145.27783,28.36036l-86.46044,79.45312c-1.48975,1.32422 -2.31739,3.20019 -2.31739,5.18652c0,1.98633 0.82764,3.86231 2.31739,5.18653l86.46044,79.5083l9.60059,-10.48341l-80.83252,-74.21142l80.83252,-74.26659z">
+                    </path></g></g></svg>
+            </button>
+
+            <div class="conteudo-carrossel" id="conteudoCarrossel0">
+                <div class="carrossel" id="carrossel0"></div>
+            </div>
+
+            <button role="button" id="flecha-direita0" class="flecha-direita"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="50" height="50"
+                viewBox="0 0 226 226"
+                style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" 
+                stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" 
+                style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#ffffff">
+                    <path d="M80.667,28.36036l-9.49023,10.37305l80.83252,74.26659l-80.83252,74.21142l9.49023,10.48341l86.5708,-79.5083c1.43456,-1.32422 2.2622,-3.2002 2.2622,-5.18653c0,-1.98633 -0.82764,-3.8623 -2.2622,-5.18652z">
+                    </path></g></g></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="../../js/loginAdmin/loginAdmin.js"></script>
+    </body>
+</html>
