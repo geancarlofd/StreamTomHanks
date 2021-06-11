@@ -103,7 +103,6 @@ function fLocalComunicaServidor(formulario, arquivo) {
 }
 
 function logout(arquivo) {
-
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -123,5 +122,4 @@ function logout(arquivo) {
         }
 
     });
-
 }
