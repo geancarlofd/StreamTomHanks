@@ -7,15 +7,11 @@ window.onload = function (){
 function chamadaClick() {
     document.getElementById("bPerfil").onclick = function () {
         window.location.href = "../";
-    }
-    document.getElementById("bPlanos").onclick = function () {
-        window.location.href = "../planos/";
-    }
-    document.getElementById("bSobrePlataforma").onclick = function () {
-        window.location.href = "../sobrePlataforma/";
+        return false;
     }
     document.getElementById("bSair").onclick = function () {
-        //FAZER O LOGOUT
+        logout("login/logout");
+        return false;
     }
 
     document.getElementById("bAlterarPagamento").onclick = function () {
@@ -98,6 +94,30 @@ function fLocalComunicaServidor(formulario, arquivo) {
                     alert(retorno.mensagem);
                     limparCampos();
                     campos();
+                }
+            }
+        }
+
+    });
+
+}
+
+function logout(arquivo) {
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../../php/" + arquivo + ".php",
+        success: function (retorno) {
+
+            if (retorno.funcao == "logout") {
+                if (retorno.status == "s") {
+                    window.location.href = "/StreamTomHanks/StreamTomHanks/";
+                }
+            }
+            else if (retorno.funcao == "valida-sessao") {
+                if (retorno.status == "n") {
+                    window.location.href = "/StreamTomHanks/StreamTomHanks/pages/login/";
                 }
             }
         }

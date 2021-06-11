@@ -1,19 +1,28 @@
+
 body {
     margin: 0;
     background: #111111;
     flex-wrap: wrap;
 }
 
-.hero-image-2 {
-    width: 100%;
-    height: 570px;
-    background-image: url("../../img/fundo/tomFilmes.gif");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-size: 100%;
+.filtro-table{
+    margin:0 auto;
+    color:#e6e6e6;
+    border-radius:5px;
+    background-color:#181818;
+    border:2px solid #e6e6e6;
+    font-family: 'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.filmesFiltro{
+    padding-left:3%;
+    padding-right: 3%;
 }
 
 .recipiente {
@@ -21,11 +30,11 @@ body {
     width: 90%;
 }
 
-.imagens {
-    width: 280px;
-    height: 450px;
-    float: left;
-    margin: 5px;
+.imagens{
+    width:280px;
+    height:450px;
+    float:left;
+    margin:5px;
     margin-bottom: 50px;
     transition: .3s ease all;
 }
@@ -43,7 +52,7 @@ body {
 .espaco {
     text-align: left;
     width: 100%;
-    height: 10%;
+    height:10%;
     background-color: #0000004d;
 }
 
