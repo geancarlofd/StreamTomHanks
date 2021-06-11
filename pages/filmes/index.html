@@ -1,0 +1,170 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../../js/bibliotecas/jquery-3.3.1.js"></script>
+
+    <link rel="stylesheet" href="../../css/header/header.css">
+    <link rel="stylesheet" href="../../css/filmes/filmes.css">
+
+    <link rel="shortcut icon" href="../../img/wilson.png">
+
+    <a href="https://icons8.com/icon/BIG1G9R0zfdm/menor-que"></a>
+    <title>Tela Inicial - StreamHanks</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-boxs">
+            <p class="titulo" id="pTitulo">StreamHanks</p>
+        </div>
+        <div class="header-boxs">
+            <p class="opcoes-header" id="pFilmes">Filmes</p>
+            <p class="opcoes-header" id="pMinhaLista">Minha Lista</p>
+        </div>
+        <div class="header-boxs"></div>
+        <div class="header-boxs"><img src="../../img/imgPerfil/perfilPic1.jpg" class="icon-header" id="iconHeader"
+                align="right"></a></div>
+
+        <div class="bg-modal" id='bg-modal'>
+            <div class="modal-content">
+                <div class="close"> + </div>
+                <div class="trailer" id="conteudoTrailer">
+
+                    <iframe width="100%" height="300" src="" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div class="enredo" id="enredo">
+                    <b class="enredo-titulo">
+                        <conteudo name="id_filme" id="conteudoTitulo"></conteudo>
+                    </b>
+                    <br>
+
+                    <hr>
+                    <font color="white"></font>
+                    <conteudo id="conteudoSinopse"></conteudo>
+                    </font>
+                </div>
+
+                <div class="ficha-tecnica">
+                    <font color="white"><i>Ano: </i></font>
+                    <conteudo id="conteudoAno"></conteudo><br>
+                    <font color="white"><i>Duração: </i></font>
+                    <conteudo id="conteudoDuracao"></conteudo><br>
+                    <font color="white"><i>Gênero: </i></font>
+                    <conteudo id="conteudoGenero"></conteudo><br>
+                    <font color="white">Direção:</font>
+                    <conteudo id="conteudoDiretor"></conteudo><br>
+                    <font color="white"><i>Produção: </i></font>
+                    <conteudo id="conteudoProducao"></conteudo><br>
+                    <font color="white"><i> Roteiro: </i></font>
+                    <conteudo id="conteudoRoteiro"></conteudo><br>
+                    <font color="white"><i>Edição: </i></font>
+                    <conteudo id="conteudoEdicao"></conteudo><br>
+                    <font color="white"><i>Distribuição:</i> </font>
+                    <conteudo id="conteudoDistribuicao"></conteudo><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filtro-box">
+        <table class="filtro-table" cellpadding="5" >
+            <tr>
+                <td align="center" colspan="3" >Gêneros</td>
+                <td align="center">Refêrencias</td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="animacao">
+                    <label for="animacao">Animação</label></td>
+                <td><input class="check" type="checkbox" id="aventura">
+                    <label for="aventura">Aventura</label>
+                </td>
+                <td><input class="check" type="checkbox" id="acao">
+                    <label for="acao">Ação</label>
+                </td>
+                <td><input class="check" type="checkbox" id="recomendados">
+                    <label for="recomendados">Recomemdados</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="biografico">
+                    <label for="biografico">Biográficos</label>
+                </td>
+                <td><input class="check" type="checkbox" id="comedia">
+                    <label for="comedia">Comédia</label>
+                </td>
+                <td><input class="check" type="checkbox" id="drama">
+                    <label for="drama">Drama</label>
+                </td>
+                <td><input class="check" type="checkbox" id="danBrown">
+                    <label for="danBrown">Dan Brown</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="espionagem">
+                    <label for="espionagem">Espionagem</label>
+                </td>
+                <td><input class="check" type="checkbox" id="fantasia">
+                    <label for="fantasia">Fantasia</label>
+                </td>
+                <td><input class="check" type="checkbox" id="faroeste">
+                    <label for="faroeste">Faroeste</label>
+                </td>
+                <td><input class="check" type="checkbox" id="premiados">
+                    <label for="premiados">Premiados</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="ficcaoCientifica">
+                    <label for="ficcaoCientifica">Ficção Científica</label>
+                </td>
+                <td><input class="check" type="checkbox" id="guerra">
+                    <label for="guerra">Guerra</label>
+                </td>
+                <td><input class="check" type="checkbox" id="policial">
+                    <label for="policial">Policial</label>
+                </td>
+                <td><input class="check" type="checkbox" id="indicados">
+                    <label for="indicados">Indicados</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="misterio">
+                    <label for="misterio">Mistério</label>
+                </td>
+                <td><input class="check" type="checkbox" id="musical">
+                    <label for="musical">Musical</label>
+                </td>
+                <td><input class="check" type="checkbox" id="romance">
+                    <label for="romance">Romance</label>
+                </td>
+                <td><input class="check" type="checkbox" id="produzidoTomHanks">
+                    <label for="produzidoTomHanks">Produzidos por Tom Hanks</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="check" type="checkbox" id="suspense">
+                    <label for="suspense">Suspense</label>
+                </td>
+                <td><input class="check" type="checkbox" id="terror">
+                    <label for="terror">Terror</label>
+                </td>
+                <td><input class="check" type="checkbox" id="thriller">
+                    <label for="thriller">Thriller</label>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="filmesFiltro" id="filmesFiltro"></div>
+</body>
+<script src="../../js/filmes/filmes.js"></script>
+</html>

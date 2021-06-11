@@ -7,29 +7,32 @@ window.onload = function(){
 function chamadaClick(){
     document.getElementById("bPerfil").onclick = function(){
         window.location.href="../myAccount/";
-    }
-    document.getElementById("bPlanos").onclick = function () {
-        window.location.href = "planos/";
-    }
-    document.getElementById("bSobrePlataforma").onclick = function () {
-        window.location.href = "sobrePlataforma/";
+        return false;
     }
     document.getElementById("bSair").onclick = function () {
         fLocalComunicaServidor("login/logout");
+        return false;
     }
 
     document.getElementById("bAlterarPagamento").onclick = function () {
         window.location.href = "alterarPagamento/";
+        return false;
     }
 
     document.getElementById("pTitulo").onclick = function () {
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/dashboard/"
+        return false;
     }
     document.getElementById("iconHeader").onclick = function () {
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/myAccount/"
+        return false;
     }
     document.getElementById("pMinhaLista").onclick = function () {
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/minha_lista/";
+        return false;
+    }
+    document.getElementById("pFilmes").onclick = function () {
+        window.location.href = "/StreamTomHanks/StreamTomHanks/pages/filmes/";
         return false;
     }
 }

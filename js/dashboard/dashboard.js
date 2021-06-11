@@ -14,6 +14,10 @@ window.onload= function(){
         window.location.href = "/StreamTomHanks/StreamTomHanks/pages/minha_lista/";
         return false;
     }
+    document.getElementById("pFilmes").onclick = function () {
+        window.location.href = "/StreamTomHanks/StreamTomHanks/pages/filmes/";
+        return false;
+    }
 }
 
 function inicia(){
