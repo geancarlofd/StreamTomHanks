@@ -45,7 +45,12 @@ function fLocalComunicaServidor(formulario, arquivo) {
 
             if (retorno.funcao == "login") {
                 if (retorno.status == "s") {
-                    window.location.href = "../dashboard/";
+                    if (retorno.usuarioTipo == "admin"){
+                        window.location.href = "../loginAdmin/";
+                    }
+                    else{
+                        window.location.href = "../dashboard/";
+                    }
                 }
                 else {
                     erro();

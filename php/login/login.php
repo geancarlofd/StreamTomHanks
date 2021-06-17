@@ -6,6 +6,7 @@
     $retorno["status"] = "n";
 	$retorno["mensagem"] = "usuario não cadastrado.";
 	$retorno["funcao"] = "login";
+    $retorno["usuarioTipo"] = "normal";
 
 
     $login = $_POST["emailUsuario"];
@@ -22,9 +23,14 @@
         $_SESSION['id_usuario'] = $registro["id"];
         $_SESSION['nome_usuario'] = $registro["NomeCompleto"];
         $_SESSION["inicio"] = time();
-        $_SESSION["tempolimite"] = 120;
+        $_SESSION["tempolimite"] = 500;
+        $_SESSION["usuarioTipo"] = $registro['tipo'];
 
         $_SESSION["id"] = session_id();
+
+        if($registro['tipo'] == "admin"){
+            $retorno["usuarioTipo"] = "admin";
+        }
 
         $retorno["status"] = "s";
 		$retorno["mensagem"] = "usuario cadastrado";
