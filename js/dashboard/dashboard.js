@@ -678,6 +678,8 @@ function fLocalComunicaServidor(arquivo) {
                 cards +='<div class="imagens" id="imagens2"><img class="imgFilmes" src="../../img/posters/vazio.png"  width="300"></div>';
                 document.getElementById('carrossel2').innerHTML = cards;
 
+
+                
                 cards = "";
                 if (retorno.minha_lista == "s") {
                     var contMinhaLista = 0;
