@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Maio-2021 às 00:59
+-- Generation Time: 17-Jun-2021 às 21:20
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -101,7 +101,9 @@ INSERT INTO `filmes` (`id`, `titulo`, `ano`, `genero`, `referencia`) VALUES
 (15, 'Os Simpsons - O Filme', 2007, 'Animação Aventura Comédia', 'Dublador'),
 (16, 'O Código Da Vinci', 2006, 'Suspense Mistério Thriller', 'Dan Brown'),
 (17, 'Anjos e Demônios', 2009, 'Suspense Fantasia', 'Dan Brown'),
-(18, 'Inferno', 2016, 'Suspense Thriller', 'Dan Brown');
+(18, 'Inferno', 2016, 'Suspense Thriller', 'Dan Brown'),
+(19, 'Filadélfia', 1993, 'Drama', 'none'),
+(20, 'Ponte de Espiões', 2015, 'Espionagem', 'none');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,8 @@ CREATE TABLE `minha_lista` (
 INSERT INTO `minha_lista` (`id`, `id_usuario`, `id_filmes`) VALUES
 (148, 26, 1),
 (158, 27, 4),
-(159, 26, 16);
+(160, 26, 5),
+(161, 26, 4);
 
 -- --------------------------------------------------------
 
@@ -142,16 +145,17 @@ CREATE TABLE `usuario` (
   `Cartao_CodigoSeguranca` int(11) NOT NULL,
   `Cpf` varchar(50) NOT NULL,
   `chave` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0'
+  `status` int(11) NOT NULL DEFAULT '0',
+  `tipo` varchar(30) NOT NULL DEFAULT 'normal'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `NomeCompleto`, `DataNascimento`, `Email`, `Senha`, `Cartao_NomeCompleto`, `Cartao_Numero`, `Cartao_Validade`, `Cartao_CodigoSeguranca`, `Cpf`, `chave`, `status`) VALUES
-(26, 'Geancarlo Ferreira Dahle', '2021-04-23', 'geancarlofd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Geancarlo', '555555555555555', '2021-08', 123, '99999999999999', '2993a1f9b5f85a33d82f6e30725911d7', 1),
-(27, 'Tom Hanks', '1956-07-09', 'streamhanks@gmail.com', '6f747f5994919c53f5f83c0318a8955b', 'Thomas Jeffrey Hanks', '8888888888888888', '2026-02', 888, '88888888888888', '1c750f75b9ac4a66c6ba220d8fd62b58', 1);
+INSERT INTO `usuario` (`id`, `NomeCompleto`, `DataNascimento`, `Email`, `Senha`, `Cartao_NomeCompleto`, `Cartao_Numero`, `Cartao_Validade`, `Cartao_CodigoSeguranca`, `Cpf`, `chave`, `status`, `tipo`) VALUES
+(26, 'Geancarlo Ferreira Dahle', '2021-04-23', 'geancarlofd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Geancarlo', '555555555555555', '2021-08', 123, '99999999999999', '2993a1f9b5f85a33d82f6e30725911d7', 1, 'normal'),
+(27, 'Tom Hanks', '1956-07-09', 'streamhanks@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Thomas Jeffrey Hanks', '8888888888888888', '2026-02', 888, '88888888888888', '25d55ad283aa400af464c76d713c07ad', 1, 'admin');
 
 --
 -- Indexes for dumped tables
@@ -192,19 +196,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `ficha_tecnica`
 --
 ALTER TABLE `ficha_tecnica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `minha_lista`
 --
 ALTER TABLE `minha_lista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `usuario`
