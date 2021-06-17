@@ -9,6 +9,8 @@ window.onload = function () {
 
         campos();
 
+
+        
         senhasConfirm();/*Chamada da function que valida as senhas*/
 
         if (globalErrorCampo == false) {/*Caso todos os campos forem validos*/
